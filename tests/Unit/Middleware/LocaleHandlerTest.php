@@ -3,10 +3,10 @@
 namespace ToolMountain\LocalizedRoutes\Tests\Unit\Middleware;
 
 use PHPUnit\Framework\Attributes\Test;
-use CodeZero\LocalizedRoutes\Middleware\Detectors\Detector;
-use CodeZero\LocalizedRoutes\Middleware\LocaleHandler;
-use CodeZero\LocalizedRoutes\Middleware\Stores\Store;
-use CodeZero\LocalizedRoutes\Tests\TestCase;
+use ToolMountain\LocalizedRoutes\Middleware\Detectors\Detector;
+use ToolMountain\LocalizedRoutes\Middleware\LocaleHandler;
+use ToolMountain\LocalizedRoutes\Middleware\Stores\Store;
+use ToolMountain\LocalizedRoutes\Tests\TestCase;
 use Illuminate\Support\Facades\App;
 use Mockery;
 

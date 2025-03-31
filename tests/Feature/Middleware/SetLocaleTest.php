@@ -1,11 +1,11 @@
 <?php
 
-namespace CodeZero\LocalizedRoutes\Tests\Feature\Middleware;
+namespace ToolMountain\LocalizedRoutes\Tests\Feature\Middleware;
 
 use PHPUnit\Framework\Attributes\Test;
-use CodeZero\LocalizedRoutes\Facades\LocaleConfig;
-use CodeZero\LocalizedRoutes\Middleware\SetLocale;
-use CodeZero\LocalizedRoutes\Tests\TestCase;
+use ToolMountain\LocalizedRoutes\Facades\LocaleConfig;
+use ToolMountain\LocalizedRoutes\Middleware\SetLocale;
+use ToolMountain\LocalizedRoutes\Tests\TestCase;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\App;
@@ -260,7 +260,7 @@ final class SetLocaleTest extends TestCase
         $routeAction = ['locale' => 'nl'];
 
         Config::set('localized-routes.trusted_detectors', [
-            \CodeZero\LocalizedRoutes\Middleware\Detectors\RouteActionDetector::class,
+            \ToolMountain\LocalizedRoutes\Middleware\Detectors\RouteActionDetector::class,
         ]);
 
         Route::group($routeAction, function () {

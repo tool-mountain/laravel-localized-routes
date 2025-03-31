@@ -170,7 +170,7 @@ Add the middleware to the `web` middleware group in `bootstrap/app.php`.
         \Illuminate\Routing\Middleware\SubstituteBindings::class,
     ]);
     $middleware->web(append: [
-        \CodeZero\LocalizedRoutes\Middleware\SetLocale::class,
+        \ToolMountain\LocalizedRoutes\Middleware\SetLocale::class,
         \Illuminate\Routing\Middleware\SubstituteBindings::class,
     ]);
 })
@@ -187,7 +187,7 @@ protected $middlewareGroups = [
         //...
         \Illuminate\Session\Middleware\StartSession::class, // <= after this
         //...
-        \CodeZero\LocalizedRoutes\Middleware\SetLocale::class,
+        \ToolMountain\LocalizedRoutes\Middleware\SetLocale::class,
         \Illuminate\Routing\Middleware\SubstituteBindings::class, // <= before this
     ],
 ];
@@ -210,7 +210,7 @@ The middleware runs the following detectors in sequence, until one returns a sup
 
 Update the `detectors` array in the config file to choose which detectors to run and in what order.
 
-> You can create your own detector by implementing the `CodeZero\LocalizedRoutes\Middleware\Detectors\Detector` interface and add a reference to it in the config file. The detectors are resolved from Laravel's IOC container, so you can add any dependencies to your constructor.
+> You can create your own detector by implementing the `ToolMountain\LocalizedRoutes\Middleware\Detectors\Detector` interface and add a reference to it in the config file. The detectors are resolved from Laravel's IOC container, so you can add any dependencies to your constructor.
 
 ### Stores
 
@@ -224,7 +224,7 @@ If a supported locale is detected, it will automatically be stored in:
 
 Update the `stores` array in the config to choose which stores to use.
 
-> You can create your own store by implementing the `CodeZero\LocalizedRoutes\Middleware\Stores\Store` interface and add a reference to it in the config file. The stores are resolved from Laravel's IOC container, so you can add any dependencies to your constructor.
+> You can create your own store by implementing the `ToolMountain\LocalizedRoutes\Middleware\Stores\Store` interface and add a reference to it in the config file. The stores are resolved from Laravel's IOC container, so you can add any dependencies to your constructor.
 
 Although no further configuration is needed, you can change advanced settings in the config file.
 
@@ -393,7 +393,7 @@ This means our middleware will not be able to update the locale and the request 
 To fix this, you can register this fallback route at the end of your `routes/web.php` file:
 
 ```php
-Route::fallback(\CodeZero\LocalizedRoutes\Controllers\FallbackController::class);
+Route::fallback(\ToolMountain\LocalizedRoutes\Controllers\FallbackController::class);
 ```
 
 Because the fallback route is an actual `Route`, the middleware will run and update the locale.
@@ -577,7 +577,7 @@ If you have a route with multiple keys, like `/en/posts/{id}/{slug}`, then you c
 From the `getRouteParameters()` method, you then return the required parameter values.
 
 ```php
-use CodeZero\LocalizedRoutes\ProvidesRouteParameters;
+use ToolMountain\LocalizedRoutes\ProvidesRouteParameters;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model implements ProvidesRouteParameters
@@ -686,7 +686,7 @@ return redirect()->temporarySignedRoute('signed.route', now()->addMinutes(30), [
 To redirect any non-localized URL to its localized version, you can set the config option `redirect_to_localized_urls` to `true`, and register the following fallback route with the `FallbackController` at the end of your `routes/web.php` file.
 
 ```php
-Route::fallback(\CodeZero\LocalizedRoutes\Controllers\FallbackController::class);
+Route::fallback(\ToolMountain\LocalizedRoutes\Controllers\FallbackController::class);
 ```
 
 The fallback route is a "catch all" route that Laravel provides.

@@ -100,8 +100,8 @@ return [
      */
     'stores' => [
         ToolMountain\LocalizedRoutes\Middleware\Stores\SessionStore::class,
-        CodeZero\LocalizedRoutes\Middleware\Stores\CookieStore::class,
-        CodeZero\LocalizedRoutes\Middleware\Stores\AppStore::class, //=> required
+        ToolMountain\LocalizedRoutes\Middleware\Stores\CookieStore::class,
+        ToolMountain\LocalizedRoutes\Middleware\Stores\AppStore::class, //=> required
     ],
 
 ];

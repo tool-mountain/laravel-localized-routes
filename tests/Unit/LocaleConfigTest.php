@@ -3,8 +3,8 @@
 namespace ToolMountain\LocalizedRoutes\Tests\Unit;
 
 use PHPUnit\Framework\Attributes\Test;
-use CodeZero\LocalizedRoutes\LocaleConfig;
-use CodeZero\LocalizedRoutes\Tests\TestCase;
+use ToolMountain\LocalizedRoutes\LocaleConfig;
+use ToolMountain\LocalizedRoutes\Tests\TestCase;
 
 final class LocaleConfigTest extends TestCase
 {

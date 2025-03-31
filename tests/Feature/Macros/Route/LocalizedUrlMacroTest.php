@@ -1,13 +1,13 @@
 <?php
 
-namespace CodeZero\LocalizedRoutes\Tests\Feature\Macros\Route;
+namespace ToolMountain\LocalizedRoutes\Tests\Feature\Macros\Route;
 
 use PHPUnit\Framework\Attributes\Test;
-use CodeZero\LocalizedRoutes\Middleware\SetLocale;
-use CodeZero\LocalizedRoutes\Tests\Stubs\Models\ModelOneWithRouteBinding;
-use CodeZero\LocalizedRoutes\Tests\Stubs\Models\ModelTwoWithRouteBinding;
-use CodeZero\LocalizedRoutes\Tests\Stubs\Models\ModelWithMultipleRouteParameters;
-use CodeZero\LocalizedRoutes\Tests\TestCase;
+use ToolMountain\LocalizedRoutes\Middleware\SetLocale;
+use ToolMountain\LocalizedRoutes\Tests\Stubs\Models\ModelOneWithRouteBinding;
+use ToolMountain\LocalizedRoutes\Tests\Stubs\Models\ModelTwoWithRouteBinding;
+use ToolMountain\LocalizedRoutes\Tests\Stubs\Models\ModelWithMultipleRouteParameters;
+use ToolMountain\LocalizedRoutes\Tests\TestCase;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;

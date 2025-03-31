@@ -3,11 +3,11 @@
 namespace ToolMountain\LocalizedRoutes\Tests\Feature;
 
 use PHPUnit\Framework\Attributes\Test;
-use CodeZero\LocalizedRoutes\Middleware\SetLocale;
+use ToolMountain\LocalizedRoutes\Middleware\SetLocale;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
-use CodeZero\LocalizedRoutes\Tests\TestCase;
-use CodeZero\LocalizedRoutes\Tests\Stubs\Models\ModelOneWithRouteBinding;
+use ToolMountain\LocalizedRoutes\Tests\TestCase;
+use ToolMountain\LocalizedRoutes\Tests\Stubs\Models\ModelOneWithRouteBinding;
 
 final class RouteModelBindingTest extends TestCase
 {

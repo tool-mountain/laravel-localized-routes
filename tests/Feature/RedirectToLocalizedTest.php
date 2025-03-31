@@ -3,7 +3,7 @@
 namespace ToolMountain\LocalizedRoutes\Tests\Feature;
 
 use PHPUnit\Framework\Attributes\Test;
-use CodeZero\LocalizedRoutes\Tests\TestCase;
+use ToolMountain\LocalizedRoutes\Tests\TestCase;
 use Illuminate\Support\Facades\Route;
 
 final class RedirectToLocalizedTest extends TestCase
@@ -20,7 +20,7 @@ final class RedirectToLocalizedTest extends TestCase
             Route::get('about', function () {});
         });
 
-        Route::fallback(\CodeZero\LocalizedRoutes\Controllers\FallbackController::class);
+        Route::fallback(\ToolMountain\LocalizedRoutes\Controllers\FallbackController::class);
 
         $this->setAppLocale('en');
         $this->get('/')->assertRedirect('en');
@@ -48,7 +48,7 @@ final class RedirectToLocalizedTest extends TestCase
             Route::get('about', function () {});
         });
 
-        Route::fallback(\CodeZero\LocalizedRoutes\Controllers\FallbackController::class);
+        Route::fallback(\ToolMountain\LocalizedRoutes\Controllers\FallbackController::class);
 
         $this->setAppLocale('en');
         $this->get('en')->assertRedirect('/');
@@ -67,7 +67,7 @@ final class RedirectToLocalizedTest extends TestCase
         $this->setSupportedLocales(['en', 'nl']);
         $this->setRedirectToLocalizedUrls(true);
 
-        Route::fallback(\CodeZero\LocalizedRoutes\Controllers\FallbackController::class);
+        Route::fallback(\ToolMountain\LocalizedRoutes\Controllers\FallbackController::class);
 
         $this->setAppLocale('en');
         $this->get('missing')->assertNotFound();
@@ -88,7 +88,7 @@ final class RedirectToLocalizedTest extends TestCase
             Route::get('about', function () {});
         });
 
-        Route::fallback(\CodeZero\LocalizedRoutes\Controllers\FallbackController::class);
+        Route::fallback(\ToolMountain\LocalizedRoutes\Controllers\FallbackController::class);
 
         $this->setAppLocale('en');
         $this->get('/')->assertRedirect('english');

@@ -3,10 +3,10 @@
 namespace ToolMountain\LocalizedRoutes\Tests\Unit\Illuminate\Routing;
 
 use PHPUnit\Framework\Attributes\Test;
-use CodeZero\LocalizedRoutes\Tests\Stubs\Controller;
-use CodeZero\LocalizedRoutes\Tests\Stubs\Models\ModelOneWithRouteBinding;
-use CodeZero\LocalizedRoutes\Tests\TestCase;
-use CodeZero\LocalizedRoutes\Illuminate\Routing\UrlGenerator;
+use ToolMountain\LocalizedRoutes\Tests\Stubs\Controller;
+use ToolMountain\LocalizedRoutes\Tests\Stubs\Models\ModelOneWithRouteBinding;
+use ToolMountain\LocalizedRoutes\Tests\TestCase;
+use ToolMountain\LocalizedRoutes\Illuminate\Routing\UrlGenerator;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;

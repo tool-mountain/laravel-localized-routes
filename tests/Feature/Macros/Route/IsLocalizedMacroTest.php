@@ -3,7 +3,7 @@
 namespace ToolMountain\LocalizedRoutes\Tests\Feature\Macros\Route;
 
 use PHPUnit\Framework\Attributes\Test;
-use CodeZero\LocalizedRoutes\Tests\TestCase;
+use ToolMountain\LocalizedRoutes\Tests\TestCase;
 use Illuminate\Support\Facades\Route;
 
 final class IsLocalizedMacroTest extends TestCase
