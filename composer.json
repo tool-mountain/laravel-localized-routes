@@ -46,6 +46,7 @@
         }
     },
     "extra": {
+        "branch-alias": "1.x-dev",
         "laravel": {
             "providers": [
                 "LaravelToolbox\\LocalizedRoutes\\LocalizedRoutesServiceProvider"
