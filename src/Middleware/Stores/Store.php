@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeZero\LocalizedRoutes\Middleware\Stores;
+namespace LaravelToolbox\LocalizedRoutes\Middleware\Stores;
 
 interface Store
 {

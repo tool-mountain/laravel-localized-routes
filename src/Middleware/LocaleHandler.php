@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeZero\LocalizedRoutes\Middleware;
+namespace LaravelToolbox\LocalizedRoutes\Middleware;
 
 use Illuminate\Support\Facades\App;
 
@@ -14,21 +14,21 @@ class LocaleHandler
     protected $locales;
 
     /**
-     * \CodeZero\LocalizedRoutes\Middleware\Detectors\Detector class names or instances.
+     * \LaravelToolbox\LocalizedRoutes\Middleware\Detectors\Detector class names or instances.
      *
      * @var \Illuminate\Support\Collection|array
      */
     protected $detectors;
 
     /**
-     * \CodeZero\LocalizedRoutes\Middleware\Stores\Store class names or instances.
+     * \LaravelToolbox\LocalizedRoutes\Middleware\Stores\Store class names or instances.
      *
      * @var \Illuminate\Support\Collection|array
      */
     protected $stores;
 
     /**
-     * \CodeZero\LocalizedRoutes\Middleware\Detectors\Detector class names.
+     * \LaravelToolbox\LocalizedRoutes\Middleware\Detectors\Detector class names.
      *
      * @var \Illuminate\Support\Collection|array
      */
@@ -99,7 +99,7 @@ class LocaleHandler
     /**
      * Check if the given Detector class is trusted.
      *
-     * @param \CodeZero\LocalizedRoutes\Middleware\Detectors\Detector|string $detector
+     * @param \LaravelToolbox\LocalizedRoutes\Middleware\Detectors\Detector|string $detector
      *
      * @return bool
      */

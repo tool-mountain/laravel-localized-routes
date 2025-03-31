@@ -1,12 +1,12 @@
 # Laravel Localized Routes
 
-[![GitHub release](https://img.shields.io/github/release/codezero-be/laravel-localized-routes.svg?style=flat-square)](https://github.com/codezero-be/laravel-localized-routes/releases)
+[![GitHub release](https://img.shields.io/github/release/laravel-toolbox/laravel-localized-routes.svg?style=flat-square)](https://github.com/laravel-toolbox/laravel-localized-routes/releases)
 [![Laravel](https://img.shields.io/badge/laravel-11-red?style=flat-square&logo=laravel&logoColor=white)](https://laravel.com)
-[![License](https://img.shields.io/packagist/l/codezero/laravel-localized-routes.svg?style=flat-square)](LICENSE.md)
-[![Build Status](https://img.shields.io/github/actions/workflow/status/codezero-be/laravel-localized-routes/run-tests.yml?style=flat-square&logo=github&logoColor=white&label=tests)](https://github.com/codezero-be/laravel-localized-routes/actions)
-[![Code Coverage](https://img.shields.io/codacy/coverage/a5db8a1321664e67900c96eadc575ece/master?style=flat-square)](https://app.codacy.com/gh/codezero-be/laravel-localized-routes)
-[![Code Quality](https://img.shields.io/codacy/grade/a5db8a1321664e67900c96eadc575ece/master?style=flat-square)](https://app.codacy.com/gh/codezero-be/laravel-localized-routes)
-[![Total Downloads](https://img.shields.io/packagist/dt/codezero/laravel-localized-routes.svg?style=flat-square)](https://packagist.org/packages/codezero/laravel-localized-routes)
+[![License](https://img.shields.io/packagist/l/laravel-toolbox/laravel-localized-routes.svg?style=flat-square)](LICENSE.md)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/laravel-toolbox/laravel-localized-routes/run-tests.yml?style=flat-square&logo=github&logoColor=white&label=tests)](https://github.com/laravel-toolbox/laravel-localized-routes/actions)
+[![Code Coverage](https://img.shields.io/codacy/coverage/a5db8a1321664e67900c96eadc575ece/master?style=flat-square)](https://app.codacy.com/gh/laravel-toolbox/laravel-localized-routes)
+[![Code Quality](https://img.shields.io/codacy/grade/a5db8a1321664e67900c96eadc575ece/master?style=flat-square)](https://app.codacy.com/gh/laravel-toolbox/laravel-localized-routes)
+[![Total Downloads](https://img.shields.io/packagist/dt/laravel-toolbox/laravel-localized-routes.svg?style=flat-square)](https://packagist.org/packages/laravel-toolbox/laravel-localized-routes)
 
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/R6R3UQ8V)
 
@@ -55,7 +55,7 @@ A convenient way to set up and use localized routes in a Laravel app.
 
 - PHP >= 8.1
 - Laravel >= 10
-- Composer ^2.3 (for [codezero/composer-preload-files](https://github.com/codezero-be/composer-preload-files))
+- Composer ^2.3 (for [codezero/composer-preload-files](https://github.com/laravel-toolbox/composer-preload-files))
 
 ## ⬆ Upgrade
 
@@ -67,7 +67,7 @@ Check our [upgrade guide](UPGRADE.md) for instructions.
 Install this package with Composer:
 
 ```bash
-composer require codezero/laravel-localized-routes
+composer require laravel-toolbox/laravel-localized-routes
 ```
 
 Laravel will automatically register the ServiceProvider.
@@ -77,7 +77,7 @@ Laravel will automatically register the ServiceProvider.
 ### ☑ Publish Configuration File
 
 ```bash
-php artisan vendor:publish --provider="CodeZero\LocalizedRoutes\LocalizedRoutesServiceProvider" --tag="config"
+php artisan vendor:publish --provider="LaravelToolbox\LocalizedRoutes\LocalizedRoutesServiceProvider" --tag="config"
 ```
 
 You will now find a `localized-routes.php` file in the `config` folder.
@@ -304,7 +304,7 @@ public function resolveRouteBinding($value, $field = null)
 
 ### ☑ Translate Hard-Coded URI Slugs
 
-This package includes [codezero/laravel-uri-translator](https://github.com/codezero-be/laravel-uri-translator).
+This package includes [laravel-toolbox/laravel-uri-translator](https://github.com/laravel-toolbox/laravel-uri-translator).
 This registers a `Lang::uri()` macro that enables you to translate individual, hard-coded URI slugs.
 Route parameters will not be translated by this macro.
 
@@ -752,16 +752,16 @@ composer test
 ## ☕ Credits
 
 - [Ivan Vermeyen](https://github.com/ivanvermeyen)
-- [All contributors](https://github.com/codezero-be/laravel-localized-routes/contributors)
+- [All contributors](https://github.com/laravel-toolbox/laravel-localized-routes/contributors)
 
 ## 🔒 Security
 
-If you discover any security related issues, please [e-mail me](mailto:ivan@codezero.be) instead of using the issue tracker.
+If you discover any security related issues, please [e-mail me](mailto:roj@vroe.men) instead of using the issue tracker.
 
 ## 📑 Changelog
 
 A complete list of all notable changes to this package can be found on the
-[releases page](https://github.com/codezero-be/laravel-localized-routes/releases).
+[releases page](https://github.com/laravel-toolbox/laravel-localized-routes/releases).
 
 ## 📜 License
 

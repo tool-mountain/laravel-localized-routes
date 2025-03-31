@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeZero\LocalizedRoutes\Controllers;
+namespace LaravelToolbox\LocalizedRoutes\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;

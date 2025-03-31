@@ -1,9 +1,9 @@
 <?php
 
-namespace CodeZero\LocalizedRoutes;
+namespace LaravelToolbox\LocalizedRoutes;
 
 use Closure;
-use CodeZero\LocalizedRoutes\Facades\LocaleConfig;
+use LaravelToolbox\LocalizedRoutes\Facades\LocaleConfig;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 

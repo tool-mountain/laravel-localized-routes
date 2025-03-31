@@ -1,9 +1,9 @@
 <?php
 
-namespace CodeZero\LocalizedRoutes\Tests\Unit\Illuminate\Routing;
+namespace LaravelToolbox\LocalizedRoutes\Tests\Unit\Illuminate\Routing;
 
 use PHPUnit\Framework\Attributes\Test;
-use CodeZero\LocalizedRoutes\Tests\TestCase;
+use LaravelToolbox\LocalizedRoutes\Tests\TestCase;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;

@@ -1,8 +1,8 @@
 <?php
 
-namespace CodeZero\LocalizedRoutes\Middleware\Detectors;
+namespace LaravelToolbox\LocalizedRoutes\Middleware\Detectors;
 
-use CodeZero\LocalizedRoutes\Facades\LocaleConfig;
+use LaravelToolbox\LocalizedRoutes\Facades\LocaleConfig;
 use Illuminate\Http\Request;
 
 class UrlDetector implements Detector

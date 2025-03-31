@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeZero\LocalizedRoutes\Middleware\Stores;
+namespace LaravelToolbox\LocalizedRoutes\Middleware\Stores;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;

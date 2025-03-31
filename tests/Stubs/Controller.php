@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeZero\LocalizedRoutes\Tests\Stubs;
+namespace LaravelToolbox\LocalizedRoutes\Tests\Stubs;
 
 class Controller extends \Illuminate\Routing\Controller
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeZero\LocalizedRoutes\Tests\Stubs;
+namespace LaravelToolbox\LocalizedRoutes\Tests\Stubs;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -39,7 +39,7 @@ class Kernel extends HttpKernel
         \Illuminate\Routing\Middleware\ThrottleRequests::class,
         \Illuminate\Routing\Middleware\ThrottleRequestsWithRedis::class,
         \Illuminate\Contracts\Session\Middleware\AuthenticatesSessions::class,
-        \CodeZero\LocalizedRoutes\Middleware\SetLocale::class, // <== Added Middleware Here
+        \LaravelToolbox\LocalizedRoutes\Middleware\SetLocale::class, // <== Added Middleware Here
         \Illuminate\Routing\Middleware\SubstituteBindings::class,
         \Illuminate\Auth\Middleware\Authorize::class,
     ];

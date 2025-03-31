@@ -1,8 +1,8 @@
 <?php
 
-namespace CodeZero\LocalizedRoutes\Macros\Route;
+namespace LaravelToolbox\LocalizedRoutes\Macros\Route;
 
-use CodeZero\LocalizedRoutes\RouteHelper;
+use LaravelToolbox\LocalizedRoutes\RouteHelper;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 

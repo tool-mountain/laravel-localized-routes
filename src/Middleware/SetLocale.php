@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeZero\LocalizedRoutes\Middleware;
+namespace LaravelToolbox\LocalizedRoutes\Middleware;
 
 use Closure;
 
@@ -9,14 +9,14 @@ class SetLocale
     /**
      * LocaleHandler.
      *
-     * @var \CodeZero\LocalizedRoutes\Middleware\LocaleHandler
+     * @var \LaravelToolbox\LocalizedRoutes\Middleware\LocaleHandler
      */
     protected $handler;
 
     /**
      * Create a new SetLocale instance.
      *
-     * @param \CodeZero\LocalizedRoutes\Middleware\LocaleHandler $handler
+     * @param \LaravelToolbox\LocalizedRoutes\Middleware\LocaleHandler $handler
      */
     public function __construct(LocaleHandler $handler)
     {

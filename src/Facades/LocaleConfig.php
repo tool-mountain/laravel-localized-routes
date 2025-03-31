@@ -1,13 +1,13 @@
 <?php
 
-namespace CodeZero\LocalizedRoutes\Facades;
+namespace LaravelToolbox\LocalizedRoutes\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
  * LocaleConfig Facade
  *
- * @mixin \CodeZero\LocalizedRoutes\LocaleConfig
+ * @mixin \LaravelToolbox\LocalizedRoutes\LocaleConfig
  */
 class LocaleConfig extends Facade
 {

@@ -76,14 +76,14 @@ return [
      * These will be executed in the order that they are added to the array!
      */
     'detectors' => [
-        CodeZero\LocalizedRoutes\Middleware\Detectors\RouteActionDetector::class, //=> required for scoped config
-        CodeZero\LocalizedRoutes\Middleware\Detectors\UrlDetector::class, //=> required
-        CodeZero\LocalizedRoutes\Middleware\Detectors\OmittedLocaleDetector::class, //=> required for omitted locale
-        CodeZero\LocalizedRoutes\Middleware\Detectors\UserDetector::class,
-        CodeZero\LocalizedRoutes\Middleware\Detectors\SessionDetector::class,
-        CodeZero\LocalizedRoutes\Middleware\Detectors\CookieDetector::class,
-        CodeZero\LocalizedRoutes\Middleware\Detectors\BrowserDetector::class,
-        CodeZero\LocalizedRoutes\Middleware\Detectors\AppDetector::class, //=> required
+        LaravelToolbox\LocalizedRoutes\Middleware\Detectors\RouteActionDetector::class, //=> required for scoped config
+        LaravelToolbox\LocalizedRoutes\Middleware\Detectors\UrlDetector::class, //=> required
+        LaravelToolbox\LocalizedRoutes\Middleware\Detectors\OmittedLocaleDetector::class, //=> required for omitted locale
+        LaravelToolbox\LocalizedRoutes\Middleware\Detectors\UserDetector::class,
+        LaravelToolbox\LocalizedRoutes\Middleware\Detectors\SessionDetector::class,
+        LaravelToolbox\LocalizedRoutes\Middleware\Detectors\CookieDetector::class,
+        LaravelToolbox\LocalizedRoutes\Middleware\Detectors\BrowserDetector::class,
+        LaravelToolbox\LocalizedRoutes\Middleware\Detectors\AppDetector::class, //=> required
     ],
 
     /**
@@ -92,14 +92,14 @@ return [
      * as the app locale, regardless if it's a supported locale or not.
      */
     'trusted_detectors' => [
-        CodeZero\LocalizedRoutes\Middleware\Detectors\RouteActionDetector::class //=> required for scoped config
+        LaravelToolbox\LocalizedRoutes\Middleware\Detectors\RouteActionDetector::class //=> required for scoped config
     ],
 
     /**
      * The stores to store the first matching locale in.
      */
     'stores' => [
-        CodeZero\LocalizedRoutes\Middleware\Stores\SessionStore::class,
+        LaravelToolbox\LocalizedRoutes\Middleware\Stores\SessionStore::class,
         CodeZero\LocalizedRoutes\Middleware\Stores\CookieStore::class,
         CodeZero\LocalizedRoutes\Middleware\Stores\AppStore::class, //=> required
     ],

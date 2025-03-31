@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeZero\LocalizedRoutes\Tests\Stubs\Models;
+namespace LaravelToolbox\LocalizedRoutes\Tests\Stubs\Models;
 
 use Illuminate\Database\Eloquent\Model as BaseModel;
 use Illuminate\Support\Facades\App;

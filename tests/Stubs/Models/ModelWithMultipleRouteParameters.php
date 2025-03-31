@@ -1,8 +1,8 @@
 <?php
 
-namespace CodeZero\LocalizedRoutes\Tests\Stubs\Models;
+namespace LaravelToolbox\LocalizedRoutes\Tests\Stubs\Models;
 
-use CodeZero\LocalizedRoutes\ProvidesRouteParameters;
+use LaravelToolbox\LocalizedRoutes\ProvidesRouteParameters;
 use Illuminate\Database\Eloquent\Model as BaseModel;
 use Illuminate\Support\Facades\App;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeZero\LocalizedRoutes\Tests\Feature\Macros\Route;
+namespace LaravelToolbox\LocalizedRoutes\Tests\Feature\Macros\Route;
 
 use PHPUnit\Framework\Attributes\Test;
 use CodeZero\LocalizedRoutes\Tests\TestCase;

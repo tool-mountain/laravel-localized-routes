@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeZero\LocalizedRoutes\Tests\Unit;
+namespace LaravelToolbox\LocalizedRoutes\Tests\Unit;
 
 use PHPUnit\Framework\Attributes\Test;
 use CodeZero\LocalizedRoutes\LocaleConfig;

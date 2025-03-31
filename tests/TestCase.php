@@ -1,10 +1,10 @@
 <?php
 
-namespace CodeZero\LocalizedRoutes\Tests;
+namespace LaravelToolbox\LocalizedRoutes\Tests;
 
 use CodeZero\BrowserLocale\BrowserLocale;
-use CodeZero\LocalizedRoutes\LocalizedRoutesServiceProvider;
-use CodeZero\UriTranslator\UriTranslatorServiceProvider;
+use LaravelToolbox\LocalizedRoutes\LocalizedRoutesServiceProvider;
+use LaravelToolbox\UriTranslator\UriTranslatorServiceProvider;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
@@ -193,7 +193,7 @@ abstract class TestCase extends  BaseTestCase
         // model binding to work properly.
         $app->singleton(
             'Illuminate\Contracts\Http\Kernel',
-            'CodeZero\LocalizedRoutes\Tests\Stubs\Kernel'
+            'LaravelToolbox\LocalizedRoutes\Tests\Stubs\Kernel'
         );
     }
 

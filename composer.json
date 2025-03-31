@@ -1,5 +1,5 @@
 {
-    "name": "codezero/laravel-localized-routes",
+    "name": "laravel-toolbox/laravel-localized-routes",
     "description": "A convenient way to set up, manage and use localized routes in a Laravel app.",
     "keywords": [
         "php",
@@ -37,21 +37,21 @@
     },
     "autoload": {
         "psr-4": {
-            "CodeZero\\LocalizedRoutes\\": "src"
+            "LaravelToolbox\\LocalizedRoutes\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "CodeZero\\LocalizedRoutes\\Tests\\": "tests"
+            "LaravelToolbox\\LocalizedRoutes\\Tests\\": "tests"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "CodeZero\\LocalizedRoutes\\LocalizedRoutesServiceProvider"
+                "LaravelToolbox\\LocalizedRoutes\\LocalizedRoutesServiceProvider"
             ],
             "aliases": {
-                "LocaleConfig": "CodeZero\\LocalizedRoutes\\Facades\\LocaleConfig"
+                "LocaleConfig": "LaravelToolbox\\LocalizedRoutes\\Facades\\LocaleConfig"
             }
         },
         "preload-files": [

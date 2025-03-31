@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeZero\LocalizedRoutes\Middleware\Detectors;
+namespace LaravelToolbox\LocalizedRoutes\Middleware\Detectors;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;

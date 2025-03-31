@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeZero\LocalizedRoutes\Illuminate\Routing;
+namespace LaravelToolbox\LocalizedRoutes\Illuminate\Routing;
 
 use Illuminate\Routing\Redirector as BaseRedirector;
 
