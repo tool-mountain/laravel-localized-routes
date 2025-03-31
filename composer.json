@@ -1,5 +1,5 @@
 {
-    "name": "laravel-toolbox/laravel-localized-routes",
+    "name": "tool-mountain/laravel-localized-routes",
     "description": "A convenient way to set up, manage and use localized routes in a Laravel app.",
     "keywords": [
         "php",
@@ -23,7 +23,7 @@
         "php": "^8.1",
         "codezero/browser-locale": "^3.0",
         "codezero/composer-preload-files": "^1.0",
-        "laravel-toolbox/laravel-uri-translator": "^1.0",
+        "tool-mountain/laravel-uri-translator": "^1.0",
         "codezero/php-url-builder": "^1.0",
         "illuminate/support": "^10.0|^11.0"
     },
@@ -37,22 +37,22 @@
     },
     "autoload": {
         "psr-4": {
-            "LaravelToolbox\\LocalizedRoutes\\": "src"
+            "ToolMountain\\LocalizedRoutes\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "LaravelToolbox\\LocalizedRoutes\\Tests\\": "tests"
+            "ToolMountain\\LocalizedRoutes\\Tests\\": "tests"
         }
     },
     "extra": {
         "branch-alias": "1.x-dev",
         "laravel": {
             "providers": [
-                "LaravelToolbox\\LocalizedRoutes\\LocalizedRoutesServiceProvider"
+                "ToolMountain\\LocalizedRoutes\\LocalizedRoutesServiceProvider"
             ],
             "aliases": {
-                "LocaleConfig": "LaravelToolbox\\LocalizedRoutes\\Facades\\LocaleConfig"
+                "LocaleConfig": "ToolMountain\\LocalizedRoutes\\Facades\\LocaleConfig"
             }
         },
         "preload-files": [

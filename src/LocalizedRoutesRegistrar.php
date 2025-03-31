@@ -1,9 +1,9 @@
 <?php
 
-namespace LaravelToolbox\LocalizedRoutes;
+namespace ToolMountain\LocalizedRoutes;
 
 use Closure;
-use LaravelToolbox\LocalizedRoutes\Facades\LocaleConfig;
+use ToolMountain\LocalizedRoutes\Facades\LocaleConfig;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 

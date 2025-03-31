@@ -1,8 +1,8 @@
 <?php
 
-namespace LaravelToolbox\LocalizedRoutes;
+namespace ToolMountain\LocalizedRoutes;
 
-use LaravelToolbox\LocalizedRoutes\Facades\LocaleConfig;
+use ToolMountain\LocalizedRoutes\Facades\LocaleConfig;
 use CodeZero\UrlBuilder\UrlBuilder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;

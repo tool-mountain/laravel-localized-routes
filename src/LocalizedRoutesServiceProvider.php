@@ -1,17 +1,17 @@
 <?php
 
-namespace LaravelToolbox\LocalizedRoutes;
+namespace ToolMountain\LocalizedRoutes;
 
 use CodeZero\BrowserLocale\Laravel\BrowserLocaleServiceProvider;
-use LaravelToolbox\LocalizedRoutes\Illuminate\Routing\Redirector;
-use LaravelToolbox\LocalizedRoutes\Illuminate\Routing\UrlGenerator;
-use LaravelToolbox\LocalizedRoutes\Macros\Route\HasLocalizedMacro;
-use LaravelToolbox\LocalizedRoutes\Macros\Route\IsFallbackMacro;
-use LaravelToolbox\LocalizedRoutes\Macros\Route\IsLocalizedMacro;
-use LaravelToolbox\LocalizedRoutes\Macros\Route\LocalizedMacro;
-use LaravelToolbox\LocalizedRoutes\Macros\Route\LocalizedUrlMacro;
-use LaravelToolbox\LocalizedRoutes\Middleware\LocaleHandler;
-use LaravelToolbox\UriTranslator\UriTranslatorServiceProvider;
+use ToolMountain\LocalizedRoutes\Illuminate\Routing\Redirector;
+use ToolMountain\LocalizedRoutes\Illuminate\Routing\UrlGenerator;
+use ToolMountain\LocalizedRoutes\Macros\Route\HasLocalizedMacro;
+use ToolMountain\LocalizedRoutes\Macros\Route\IsFallbackMacro;
+use ToolMountain\LocalizedRoutes\Macros\Route\IsLocalizedMacro;
+use ToolMountain\LocalizedRoutes\Macros\Route\LocalizedMacro;
+use ToolMountain\LocalizedRoutes\Macros\Route\LocalizedUrlMacro;
+use ToolMountain\LocalizedRoutes\Middleware\LocaleHandler;
+use ToolMountain\UriTranslator\UriTranslatorServiceProvider;
 use Illuminate\Contracts\Routing\UrlGenerator as UrlGeneratorContract;
 use Illuminate\Support\ServiceProvider;
 

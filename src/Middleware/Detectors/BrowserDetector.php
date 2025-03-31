@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelToolbox\LocalizedRoutes\Middleware\Detectors;
+namespace ToolMountain\LocalizedRoutes\Middleware\Detectors;
 
 use CodeZero\BrowserLocale\BrowserLocale;
 use CodeZero\BrowserLocale\Filters\CombinedFilter;

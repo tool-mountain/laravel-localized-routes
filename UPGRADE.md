@@ -47,7 +47,7 @@ We dropped support for Laravel 5.6, 5.7, 5.8 and 6.x.
 
 ### ➡ Middleware Changes
 
-Applying the `LaravelToolbox\LocalizedRoutes\Middleware\SetLocale` middleware is now more straightforward.
+Applying the `ToolMountain\LocalizedRoutes\Middleware\SetLocale` middleware is now more straightforward.
 
 The middleware is no longer automatically applied to localized routes if the `use_locale_middleware` option is set to `true`.
 
@@ -64,7 +64,7 @@ If you choose to use the middleware, you need to apply it manually to your route
 protected $middlewarePriority = [
     \Illuminate\Session\Middleware\StartSession::class, // <= after this
     //...
-    \LaravelToolbox\LocalizedRoutes\Middleware\SetLocale::class,
+    \ToolMountain\LocalizedRoutes\Middleware\SetLocale::class,
     \Illuminate\Routing\Middleware\SubstituteBindings::class, // <= before this
 ];
 ```
@@ -123,11 +123,11 @@ We also added an option to the config file in case you need to change this name.
 
 ### ➡ Changed `FallbackController` Namespace
 
-The namespace of the `FallbackController` has been pluralized to `LaravelToolbox\LocalizedRoutes\Controllers`.
+The namespace of the `FallbackController` has been pluralized to `ToolMountain\LocalizedRoutes\Controllers`.
 
 🔸 **Actions Required**
 
-- If you use the `FallbackController`, update the namespace from `LaravelToolbox\LocalizedRoutes\Controller\FallbackController` to `LaravelToolbox\LocalizedRoutes\Controllers\FallbackController`.
+- If you use the `FallbackController`, update the namespace from `ToolMountain\LocalizedRoutes\Controller\FallbackController` to `ToolMountain\LocalizedRoutes\Controllers\FallbackController`.
 
 ---
 

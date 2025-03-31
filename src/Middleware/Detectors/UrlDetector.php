@@ -1,8 +1,8 @@
 <?php
 
-namespace LaravelToolbox\LocalizedRoutes\Middleware\Detectors;
+namespace ToolMountain\LocalizedRoutes\Middleware\Detectors;
 
-use LaravelToolbox\LocalizedRoutes\Facades\LocaleConfig;
+use ToolMountain\LocalizedRoutes\Facades\LocaleConfig;
 use Illuminate\Http\Request;
 
 class UrlDetector implements Detector

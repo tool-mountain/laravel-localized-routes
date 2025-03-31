@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelToolbox\LocalizedRoutes\Tests\Unit\Middleware;
+namespace ToolMountain\LocalizedRoutes\Tests\Unit\Middleware;
 
 use PHPUnit\Framework\Attributes\Test;
 use CodeZero\LocalizedRoutes\Middleware\Detectors\Detector;

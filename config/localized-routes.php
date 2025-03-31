@@ -76,14 +76,14 @@ return [
      * These will be executed in the order that they are added to the array!
      */
     'detectors' => [
-        LaravelToolbox\LocalizedRoutes\Middleware\Detectors\RouteActionDetector::class, //=> required for scoped config
-        LaravelToolbox\LocalizedRoutes\Middleware\Detectors\UrlDetector::class, //=> required
-        LaravelToolbox\LocalizedRoutes\Middleware\Detectors\OmittedLocaleDetector::class, //=> required for omitted locale
-        LaravelToolbox\LocalizedRoutes\Middleware\Detectors\UserDetector::class,
-        LaravelToolbox\LocalizedRoutes\Middleware\Detectors\SessionDetector::class,
-        LaravelToolbox\LocalizedRoutes\Middleware\Detectors\CookieDetector::class,
-        LaravelToolbox\LocalizedRoutes\Middleware\Detectors\BrowserDetector::class,
-        LaravelToolbox\LocalizedRoutes\Middleware\Detectors\AppDetector::class, //=> required
+        ToolMountain\LocalizedRoutes\Middleware\Detectors\RouteActionDetector::class, //=> required for scoped config
+        ToolMountain\LocalizedRoutes\Middleware\Detectors\UrlDetector::class, //=> required
+        ToolMountain\LocalizedRoutes\Middleware\Detectors\OmittedLocaleDetector::class, //=> required for omitted locale
+        ToolMountain\LocalizedRoutes\Middleware\Detectors\UserDetector::class,
+        ToolMountain\LocalizedRoutes\Middleware\Detectors\SessionDetector::class,
+        ToolMountain\LocalizedRoutes\Middleware\Detectors\CookieDetector::class,
+        ToolMountain\LocalizedRoutes\Middleware\Detectors\BrowserDetector::class,
+        ToolMountain\LocalizedRoutes\Middleware\Detectors\AppDetector::class, //=> required
     ],
 
     /**
@@ -92,14 +92,14 @@ return [
      * as the app locale, regardless if it's a supported locale or not.
      */
     'trusted_detectors' => [
-        LaravelToolbox\LocalizedRoutes\Middleware\Detectors\RouteActionDetector::class //=> required for scoped config
+        ToolMountain\LocalizedRoutes\Middleware\Detectors\RouteActionDetector::class //=> required for scoped config
     ],
 
     /**
      * The stores to store the first matching locale in.
      */
     'stores' => [
-        LaravelToolbox\LocalizedRoutes\Middleware\Stores\SessionStore::class,
+        ToolMountain\LocalizedRoutes\Middleware\Stores\SessionStore::class,
         CodeZero\LocalizedRoutes\Middleware\Stores\CookieStore::class,
         CodeZero\LocalizedRoutes\Middleware\Stores\AppStore::class, //=> required
     ],

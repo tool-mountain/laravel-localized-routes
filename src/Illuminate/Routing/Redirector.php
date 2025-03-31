@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelToolbox\LocalizedRoutes\Illuminate\Routing;
+namespace ToolMountain\LocalizedRoutes\Illuminate\Routing;
 
 use Illuminate\Routing\Redirector as BaseRedirector;
 

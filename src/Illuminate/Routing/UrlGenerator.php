@@ -1,8 +1,8 @@
 <?php
 
-namespace LaravelToolbox\LocalizedRoutes\Illuminate\Routing;
+namespace ToolMountain\LocalizedRoutes\Illuminate\Routing;
 
-use LaravelToolbox\LocalizedRoutes\Facades\LocaleConfig;
+use ToolMountain\LocalizedRoutes\Facades\LocaleConfig;
 use Illuminate\Routing\UrlGenerator as BaseUrlGenerator;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;

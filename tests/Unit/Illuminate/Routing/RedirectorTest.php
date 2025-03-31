@@ -1,9 +1,9 @@
 <?php
 
-namespace LaravelToolbox\LocalizedRoutes\Tests\Unit\Illuminate\Routing;
+namespace ToolMountain\LocalizedRoutes\Tests\Unit\Illuminate\Routing;
 
 use PHPUnit\Framework\Attributes\Test;
-use LaravelToolbox\LocalizedRoutes\Tests\TestCase;
+use ToolMountain\LocalizedRoutes\Tests\TestCase;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;

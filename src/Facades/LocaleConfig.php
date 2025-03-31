@@ -1,13 +1,13 @@
 <?php
 
-namespace LaravelToolbox\LocalizedRoutes\Facades;
+namespace ToolMountain\LocalizedRoutes\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
  * LocaleConfig Facade
  *
- * @mixin \LaravelToolbox\LocalizedRoutes\LocaleConfig
+ * @mixin \ToolMountain\LocalizedRoutes\LocaleConfig
  */
 class LocaleConfig extends Facade
 {

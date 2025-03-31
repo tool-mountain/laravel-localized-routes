@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelToolbox\LocalizedRoutes\Tests\Feature;
+namespace ToolMountain\LocalizedRoutes\Tests\Feature;
 
 use PHPUnit\Framework\Attributes\Test;
 use CodeZero\LocalizedRoutes\Middleware\SetLocale;

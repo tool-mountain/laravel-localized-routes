@@ -1,8 +1,8 @@
 <?php
 
-namespace LaravelToolbox\LocalizedRoutes\Tests\Stubs\Models;
+namespace ToolMountain\LocalizedRoutes\Tests\Stubs\Models;
 
-use LaravelToolbox\LocalizedRoutes\ProvidesRouteParameters;
+use ToolMountain\LocalizedRoutes\ProvidesRouteParameters;
 use Illuminate\Database\Eloquent\Model as BaseModel;
 use Illuminate\Support\Facades\App;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelToolbox\LocalizedRoutes\Controllers;
+namespace ToolMountain\LocalizedRoutes\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;

@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelToolbox\LocalizedRoutes\Middleware\Detectors;
+namespace ToolMountain\LocalizedRoutes\Middleware\Detectors;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Cookie;

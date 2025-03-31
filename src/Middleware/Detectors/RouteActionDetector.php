@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelToolbox\LocalizedRoutes\Middleware\Detectors;
+namespace ToolMountain\LocalizedRoutes\Middleware\Detectors;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;

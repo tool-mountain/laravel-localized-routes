@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelToolbox\LocalizedRoutes\Middleware\Stores;
+namespace ToolMountain\LocalizedRoutes\Middleware\Stores;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Cookie;

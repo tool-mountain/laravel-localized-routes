@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelToolbox\LocalizedRoutes;
+namespace ToolMountain\LocalizedRoutes;
 
 class LocaleConfig
 {

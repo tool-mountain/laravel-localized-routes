@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelToolbox\LocalizedRoutes\Middleware;
+namespace ToolMountain\LocalizedRoutes\Middleware;
 
 use Closure;
 
@@ -9,14 +9,14 @@ class SetLocale
     /**
      * LocaleHandler.
      *
-     * @var \LaravelToolbox\LocalizedRoutes\Middleware\LocaleHandler
+     * @var \ToolMountain\LocalizedRoutes\Middleware\LocaleHandler
      */
     protected $handler;
 
     /**
      * Create a new SetLocale instance.
      *
-     * @param \LaravelToolbox\LocalizedRoutes\Middleware\LocaleHandler $handler
+     * @param \ToolMountain\LocalizedRoutes\Middleware\LocaleHandler $handler
      */
     public function __construct(LocaleHandler $handler)
     {

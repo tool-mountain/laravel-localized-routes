@@ -1,8 +1,8 @@
 <?php
 
-namespace LaravelToolbox\LocalizedRoutes;
+namespace ToolMountain\LocalizedRoutes;
 
-use LaravelToolbox\LocalizedRoutes\Facades\LocaleConfig;
+use ToolMountain\LocalizedRoutes\Facades\LocaleConfig;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;

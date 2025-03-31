@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelToolbox\LocalizedRoutes\Middleware;
+namespace ToolMountain\LocalizedRoutes\Middleware;
 
 use Illuminate\Support\Facades\App;
 
@@ -14,21 +14,21 @@ class LocaleHandler
     protected $locales;
 
     /**
-     * \LaravelToolbox\LocalizedRoutes\Middleware\Detectors\Detector class names or instances.
+     * \ToolMountain\LocalizedRoutes\Middleware\Detectors\Detector class names or instances.
      *
      * @var \Illuminate\Support\Collection|array
      */
     protected $detectors;
 
     /**
-     * \LaravelToolbox\LocalizedRoutes\Middleware\Stores\Store class names or instances.
+     * \ToolMountain\LocalizedRoutes\Middleware\Stores\Store class names or instances.
      *
      * @var \Illuminate\Support\Collection|array
      */
     protected $stores;
 
     /**
-     * \LaravelToolbox\LocalizedRoutes\Middleware\Detectors\Detector class names.
+     * \ToolMountain\LocalizedRoutes\Middleware\Detectors\Detector class names.
      *
      * @var \Illuminate\Support\Collection|array
      */
@@ -99,7 +99,7 @@ class LocaleHandler
     /**
      * Check if the given Detector class is trusted.
      *
-     * @param \LaravelToolbox\LocalizedRoutes\Middleware\Detectors\Detector|string $detector
+     * @param \ToolMountain\LocalizedRoutes\Middleware\Detectors\Detector|string $detector
      *
      * @return bool
      */

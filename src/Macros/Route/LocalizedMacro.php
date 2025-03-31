@@ -1,8 +1,8 @@
 <?php
 
-namespace LaravelToolbox\LocalizedRoutes\Macros\Route;
+namespace ToolMountain\LocalizedRoutes\Macros\Route;
 
-use LaravelToolbox\LocalizedRoutes\LocalizedRoutesRegistrar;
+use ToolMountain\LocalizedRoutes\LocalizedRoutesRegistrar;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 

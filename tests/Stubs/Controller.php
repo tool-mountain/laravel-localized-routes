@@ -1,6 +1,6 @@
 <?php
 
-namespace LaravelToolbox\LocalizedRoutes\Tests\Stubs;
+namespace ToolMountain\LocalizedRoutes\Tests\Stubs;
 
 class Controller extends \Illuminate\Routing\Controller
 {
