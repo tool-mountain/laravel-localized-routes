@@ -22,16 +22,10 @@ abstract class TestCase extends  BaseTestCase
     protected $sessionKey;
     protected $cookieName;
 
-    /**
-     * Setup the test environment.
-     *
-     * @return void
-     */
-    protected function setUp(): void
+    protected function defineEnvironment($app): void
     {
-        parent::setUp();
-
         Config::set('app.key', Str::random(32));
+        Config::set('filesystems.disks.local.serve', false);
 
         // Remove any default browser locales
         $this->setBrowserLocales(null);
