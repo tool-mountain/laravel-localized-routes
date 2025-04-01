@@ -17,10 +17,10 @@ final class IsLocalizedMacroTest extends TestCase
         $this->setSupportedLocales(['en', 'nl']);
 
         Route::localized(function () {
-            Route::get('localized-route', fn() => Route::isLocalized() ? 'true' : 'false')->middleware(['web']);
+            Route::get('localized-route', fn () => Route::isLocalized() ? 'true' : 'false')->middleware(['web']);
         });
 
-        Route::get('non-localized-route', fn() => Route::isLocalized() ? 'true' : 'false')->middleware(['web']);
+        Route::get('non-localized-route', fn () => Route::isLocalized() ? 'true' : 'false')->middleware(['web']);
 
         $response = $this->call('GET', '/en/localized-route');
         $response->assertOk();
@@ -42,9 +42,9 @@ final class IsLocalizedMacroTest extends TestCase
         $this->setSupportedLocales(['en', 'nl']);
 
         Route::localized(function () {
-            Route::get('route-one', fn() => Route::isLocalized('route-one') ? 'true' : 'false')->name('route-one')->middleware(['web']);
+            Route::get('route-one', fn () => Route::isLocalized('route-one') ? 'true' : 'false')->name('route-one')->middleware(['web']);
 
-            Route::get('route-two', fn() => Route::isLocalized('route-one') ? 'true' : 'false')->name('route-two')->middleware(['web']);
+            Route::get('route-two', fn () => Route::isLocalized('route-one') ? 'true' : 'false')->name('route-two')->middleware(['web']);
         });
 
         $response = $this->call('GET', '/en/route-one');
@@ -71,7 +71,7 @@ final class IsLocalizedMacroTest extends TestCase
         $this->setSupportedLocales(['en', 'nl']);
 
         Route::localized(function () {
-            Route::get('route-one', fn() => Route::isLocalized('route-one', 'en') ? 'true' : 'false')->name('route-one')->middleware(['web']);
+            Route::get('route-one', fn () => Route::isLocalized('route-one', 'en') ? 'true' : 'false')->name('route-one')->middleware(['web']);
         });
 
         $response = $this->call('GET', '/en/route-one');
@@ -90,11 +90,11 @@ final class IsLocalizedMacroTest extends TestCase
         $this->setSupportedLocales(['en', 'nl']);
 
         Route::localized(function () {
-            Route::get('route-one', fn() => Route::isLocalized(['route-one', 'route-two']) ? 'true' : 'false')->name('route-one')->middleware(['web']);
+            Route::get('route-one', fn () => Route::isLocalized(['route-one', 'route-two']) ? 'true' : 'false')->name('route-one')->middleware(['web']);
 
-            Route::get('route-two', fn() => Route::isLocalized(['route-one', 'route-two']) ? 'true' : 'false')->name('route-two')->middleware(['web']);
+            Route::get('route-two', fn () => Route::isLocalized(['route-one', 'route-two']) ? 'true' : 'false')->name('route-two')->middleware(['web']);
 
-            Route::get('route-three', fn() => Route::isLocalized(['route-one', 'route-two']) ? 'true' : 'false')->name('route-three')->middleware(['web']);
+            Route::get('route-three', fn () => Route::isLocalized(['route-one', 'route-two']) ? 'true' : 'false')->name('route-three')->middleware(['web']);
         });
 
         $response = $this->call('GET', '/en/route-one');
@@ -129,11 +129,11 @@ final class IsLocalizedMacroTest extends TestCase
         $this->setSupportedLocales(['en', 'nl']);
 
         Route::localized(function () {
-            Route::get('route-one', fn() => Route::isLocalized(['route-one', 'route-two'], 'en') ? 'true' : 'false')->name('route-one')->middleware(['web']);
+            Route::get('route-one', fn () => Route::isLocalized(['route-one', 'route-two'], 'en') ? 'true' : 'false')->name('route-one')->middleware(['web']);
 
-            Route::get('route-two', fn() => Route::isLocalized(['route-one', 'route-two'], 'en') ? 'true' : 'false')->name('route-two')->middleware(['web']);
+            Route::get('route-two', fn () => Route::isLocalized(['route-one', 'route-two'], 'en') ? 'true' : 'false')->name('route-two')->middleware(['web']);
 
-            Route::get('route-three', fn() => Route::isLocalized(['route-one', 'route-two'], 'en') ? 'true' : 'false')->name('route-three')->middleware(['web']);
+            Route::get('route-three', fn () => Route::isLocalized(['route-one', 'route-two'], 'en') ? 'true' : 'false')->name('route-three')->middleware(['web']);
         });
 
         $response = $this->call('GET', '/en/route-one');
@@ -168,9 +168,9 @@ final class IsLocalizedMacroTest extends TestCase
         $this->setSupportedLocales(['en', 'nl', 'fr']);
 
         Route::localized(function () {
-            Route::get('route-one', fn() => Route::isLocalized('route-one', ['en', 'nl']) ? 'true' : 'false')->name('route-one')->middleware(['web']);
+            Route::get('route-one', fn () => Route::isLocalized('route-one', ['en', 'nl']) ? 'true' : 'false')->name('route-one')->middleware(['web']);
 
-            Route::get('route-two', fn() => Route::isLocalized('route-one', ['en', 'nl']) ? 'true' : 'false')->name('route-two')->middleware(['web']);
+            Route::get('route-two', fn () => Route::isLocalized('route-one', ['en', 'nl']) ? 'true' : 'false')->name('route-two')->middleware(['web']);
         });
 
         $response = $this->call('GET', '/en/route-one');

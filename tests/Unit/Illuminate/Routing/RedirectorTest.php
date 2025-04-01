@@ -18,7 +18,7 @@ final class RedirectorTest extends TestCase
         $this->setAppLocale('en');
 
         Route::get('en/target/route')->name('en.target.route');
-        Route::get('redirect', fn() => Redirect::route('target.route'));
+        Route::get('redirect', fn () => Redirect::route('target.route'));
 
         $response = $this->get('/redirect');
 
@@ -32,7 +32,7 @@ final class RedirectorTest extends TestCase
 
         Route::get('en/target/route')->name('en.target.route');
         Route::get('nl/target/route')->name('nl.target.route');
-        Route::get('redirect', fn() => Redirect::route('target.route', [], 302, [], 'nl'));
+        Route::get('redirect', fn () => Redirect::route('target.route', [], 302, [], 'nl'));
 
         $response = $this->get('/redirect');
 
@@ -45,7 +45,7 @@ final class RedirectorTest extends TestCase
         $this->setAppLocale('en');
 
         Route::get('en/target/route')->name('en.target.route');
-        Route::get('redirect', fn() => Redirect::signedRoute('target.route'));
+        Route::get('redirect', fn () => Redirect::signedRoute('target.route'));
 
         $response = $this->get('/redirect');
 
@@ -59,7 +59,7 @@ final class RedirectorTest extends TestCase
 
         Route::get('en/target/route')->name('en.target.route');
         Route::get('nl/target/route')->name('nl.target.route');
-        Route::get('redirect', fn() => Redirect::signedRoute('target.route', [], null, 302, [], 'nl'));
+        Route::get('redirect', fn () => Redirect::signedRoute('target.route', [], null, 302, [], 'nl'));
 
         $response = $this->get('/redirect');
 
@@ -72,7 +72,7 @@ final class RedirectorTest extends TestCase
         $this->setAppLocale('en');
 
         Route::get('en/target/route')->name('en.target.route');
-        Route::get('redirect', fn() => Redirect::temporarySignedRoute('target.route', now()->addMinutes(30)));
+        Route::get('redirect', fn () => Redirect::temporarySignedRoute('target.route', now()->addMinutes(30)));
 
         $response = $this->get('/redirect');
 
@@ -86,7 +86,7 @@ final class RedirectorTest extends TestCase
 
         Route::get('en/target/route')->name('en.target.route');
         Route::get('nl/target/route')->name('nl.target.route');
-        Route::get('redirect', fn() => Redirect::temporarySignedRoute('target.route', now()->addMinutes(30), [], 302, [], 'nl'));
+        Route::get('redirect', fn () => Redirect::temporarySignedRoute('target.route', now()->addMinutes(30), [], 302, [], 'nl'));
 
         $response = $this->get('/redirect');
 

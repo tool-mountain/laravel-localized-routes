@@ -100,7 +100,7 @@ abstract class TestCase extends BaseTestCase
      */
     protected function setBrowserLocales(?string $locales): void
     {
-        App::bind(BrowserLocale::class, fn() => new BrowserLocale($locales));
+        App::bind(BrowserLocale::class, fn () => new BrowserLocale($locales));
     }
 
     /**
@@ -147,7 +147,7 @@ abstract class TestCase extends BaseTestCase
         // model binding to work properly.
         $app->singleton(
             \Illuminate\Contracts\Http\Kernel::class,
-            \ToolMountain\LocalizedRoutes\Tests\Stubs\Kernel::class
+            Stubs\Kernel::class
         );
     }
 

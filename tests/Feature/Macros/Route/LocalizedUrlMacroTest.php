@@ -36,7 +36,7 @@ final class LocalizedUrlMacroTest extends TestCase
         App::instance(ModelOneWithRouteBinding::class, $model);
 
         Route::localized(function () {
-            Route::get('route/{first}/{second}', fn(ModelOneWithRouteBinding $first, ModelOneWithRouteBinding $second) => [
+            Route::get('route/{first}/{second}', fn (ModelOneWithRouteBinding $first, ModelOneWithRouteBinding $second) => [
                 'current' => Route::localizedUrl(),
                 'en' => Route::localizedUrl('en'),
                 'nl' => Route::localizedUrl('nl'),
@@ -76,7 +76,7 @@ final class LocalizedUrlMacroTest extends TestCase
         App::instance(ModelTwoWithRouteBinding::class, $bar);
 
         Route::localized(function () {
-            Route::get('route/{foo}/{bar}', fn(ModelOneWithRouteBinding $foo, ModelTwoWithRouteBinding $bar) => [
+            Route::get('route/{foo}/{bar}', fn (ModelOneWithRouteBinding $foo, ModelTwoWithRouteBinding $bar) => [
                 'current' => Route::localizedUrl(),
                 'en' => Route::localizedUrl('en'),
                 'nl' => Route::localizedUrl('nl'),
@@ -108,7 +108,7 @@ final class LocalizedUrlMacroTest extends TestCase
         App::instance(ModelOneWithRouteBinding::class, $model);
 
         Route::localized(function () {
-            Route::get('route/{model:slug}', fn(ModelOneWithRouteBinding $model) => [
+            Route::get('route/{model:slug}', fn (ModelOneWithRouteBinding $model) => [
                 'current' => Route::localizedUrl(),
                 'en' => Route::localizedUrl('en'),
                 'nl' => Route::localizedUrl('nl'),
@@ -141,7 +141,7 @@ final class LocalizedUrlMacroTest extends TestCase
         App::instance(ModelWithMultipleRouteParameters::class, $model);
 
         Route::localized(function () {
-            Route::get('route/{model}/{slug}', fn(ModelWithMultipleRouteParameters $model, $slug) => [
+            Route::get('route/{model}/{slug}', fn (ModelWithMultipleRouteParameters $model, $slug) => [
                 'current' => Route::localizedUrl(),
                 'en' => Route::localizedUrl('en'),
                 'nl' => Route::localizedUrl('nl'),
@@ -173,7 +173,7 @@ final class LocalizedUrlMacroTest extends TestCase
         App::instance(ModelOneWithRouteBinding::class, $model);
 
         Route::localized(function () {
-            Route::get('route/{slug}', fn($slug) => [
+            Route::get('route/{slug}', fn ($slug) => [
                 'current' => Route::localizedUrl(),
                 'en' => Route::localizedUrl('en'),
                 'nl' => Route::localizedUrl('nl'),
@@ -205,7 +205,7 @@ final class LocalizedUrlMacroTest extends TestCase
         App::instance(ModelOneWithRouteBinding::class, $model);
 
         Route::localized(function () use ($model) {
-            Route::get('route/{slug}', fn($slug) => [
+            Route::get('route/{slug}', fn ($slug) => [
                 'current' => Route::localizedUrl(),
                 'en' => Route::localizedUrl('en', [$model]),
                 'nl' => Route::localizedUrl('nl', [$model]),
@@ -239,7 +239,7 @@ final class LocalizedUrlMacroTest extends TestCase
 
         Route::localized(function () use ($model) {
             Route::get('route/{id}/{slug}', function ($id, $slug) use ($model) {
-                $closure = (fn($locale) => [$model->id, $model->getSlug($locale)]);
+                $closure = (fn ($locale) => [$model->id, $model->getSlug($locale)]);
 
                 return [
                     'current' => Route::localizedUrl(),
@@ -264,12 +264,12 @@ final class LocalizedUrlMacroTest extends TestCase
         $this->withoutExceptionHandling();
         $this->setSupportedLocales(['en', 'nl']);
 
-        Route::get('route/one', fn() => [
+        Route::get('route/one', fn () => [
             'current' => Route::localizedUrl(),
             'en' => Route::localizedUrl('en'),
             'nl' => Route::localizedUrl('nl'),
         ]);
-        Route::get('route/two', fn() => [
+        Route::get('route/two', fn () => [
             'current' => Route::localizedUrl(),
             'en' => Route::localizedUrl('en'),
             'nl' => Route::localizedUrl('nl'),
@@ -299,12 +299,12 @@ final class LocalizedUrlMacroTest extends TestCase
         $this->setSupportedLocales(['en', 'nl']);
 
         Route::localized(function () {
-            Route::get('route/one', fn() => [
+            Route::get('route/one', fn () => [
                 'current' => Route::localizedUrl(),
                 'en' => Route::localizedUrl('en'),
                 'nl' => Route::localizedUrl('nl'),
             ]);
-            Route::get('route/two', fn() => [
+            Route::get('route/two', fn () => [
                 'current' => Route::localizedUrl(),
                 'en' => Route::localizedUrl('en'),
                 'nl' => Route::localizedUrl('nl'),
@@ -334,7 +334,7 @@ final class LocalizedUrlMacroTest extends TestCase
         $this->withoutExceptionHandling();
         $this->setSupportedLocales(['en', 'nl']);
 
-        Route::get('non/localized/route', fn() => [
+        Route::get('non/localized/route', fn () => [
             'current' => Route::localizedUrl(),
             'en' => Route::localizedUrl('en'),
             'nl' => Route::localizedUrl('nl'),
@@ -360,7 +360,7 @@ final class LocalizedUrlMacroTest extends TestCase
         $this->setAppLocale('en');
 
         Route::localized(function () {
-            Route::get('/', fn() => [
+            Route::get('/', fn () => [
                 'current' => Route::localizedUrl(),
                 'en' => Route::localizedUrl('en'),
                 'nl' => Route::localizedUrl('nl'),
@@ -387,7 +387,7 @@ final class LocalizedUrlMacroTest extends TestCase
         $this->setAppLocale('en');
 
         Route::localized(function () {
-            Route::get('/', fn() => [
+            Route::get('/', fn () => [
                 'current' => Route::localizedUrl(),
                 'en' => Route::localizedUrl('en'),
                 'nl' => Route::localizedUrl('nl'),
@@ -415,7 +415,7 @@ final class LocalizedUrlMacroTest extends TestCase
         $this->setFallbackLocale('en');
 
         Route::localized(function () {
-            Route::get('/', fn() => [
+            Route::get('/', fn () => [
                 'current' => Route::localizedUrl(),
                 'en' => Route::localizedUrl('en'),
                 'nl' => Route::localizedUrl('nl'),
@@ -443,7 +443,7 @@ final class LocalizedUrlMacroTest extends TestCase
         $this->setFallbackLocale('en');
 
         Route::localized(function () {
-            Route::get('/', fn() => [
+            Route::get('/', fn () => [
                 'current' => Route::localizedUrl(),
                 'en' => Route::localizedUrl('en'),
                 'nl' => Route::localizedUrl('nl'),
@@ -544,9 +544,9 @@ final class LocalizedUrlMacroTest extends TestCase
     #[Test]
     public function a_fallback_route_is_not_triggered_when_a_registered_route_throws_a_not_found_exception(): void
     {
-        Route::get('abort', fn() => abort(404));
+        Route::get('abort', fn () => abort(404));
 
-        Route::fallback(fn() => 'fallback');
+        Route::fallback(fn () => 'fallback');
 
         $response = $this->get('/abort');
         $response->assertNotFound();
@@ -561,7 +561,7 @@ final class LocalizedUrlMacroTest extends TestCase
             throw new ModelNotFoundException();
         });
 
-        Route::fallback(fn() => 'fallback');
+        Route::fallback(fn () => 'fallback');
 
         $response = $this->call('GET', '/route/mismatch');
         $response->assertNotFound();
@@ -577,7 +577,7 @@ final class LocalizedUrlMacroTest extends TestCase
         $this->setAppLocale('en');
 
         Route::localized(function () {
-            Route::fallback(fn() => response([
+            Route::fallback(fn () => response([
                 'current' => Route::localizedUrl(),
                 'en' => Route::localizedUrl('en'),
                 'nl' => Route::localizedUrl('nl'),
@@ -600,7 +600,7 @@ final class LocalizedUrlMacroTest extends TestCase
         $this->setSupportedLocales(['en', 'nl']);
         $this->setAppLocale('en');
 
-        Route::fallback(fn() => response([
+        Route::fallback(fn () => response([
             'current' => Route::localizedUrl(),
             'en' => Route::localizedUrl('en'),
             'nl' => Route::localizedUrl('nl'),
@@ -622,7 +622,7 @@ final class LocalizedUrlMacroTest extends TestCase
         $this->setSupportedLocales(['en', 'nl']);
         $this->setAppLocale('nl');
 
-        Route::fallback(fn() => response([
+        Route::fallback(fn () => response([
             'current' => Route::localizedUrl(),
             'en' => Route::localizedUrl('en'),
             'nl' => Route::localizedUrl('nl'),
@@ -645,7 +645,7 @@ final class LocalizedUrlMacroTest extends TestCase
         $this->setOmittedLocale('nl');
         $this->setAppLocale('en');
 
-        Route::fallback(fn() => response([
+        Route::fallback(fn () => response([
             'current' => Route::localizedUrl(),
             'en' => Route::localizedUrl('en'),
             'nl' => Route::localizedUrl('nl'),
@@ -670,7 +670,7 @@ final class LocalizedUrlMacroTest extends TestCase
         ]);
         $this->setAppLocale('en');
 
-        Route::fallback(fn() => response([
+        Route::fallback(fn () => response([
             'current' => Route::localizedUrl(),
             'en' => Route::localizedUrl('en'),
             'nl' => Route::localizedUrl('nl'),
@@ -692,7 +692,7 @@ final class LocalizedUrlMacroTest extends TestCase
         $this->setSupportedLocales(['en', 'nl']);
         $this->setAppLocale('en');
 
-        Route::get('route', fn() => [
+        Route::get('route', fn () => [
             'current' => Route::localizedUrl(null, [], false),
             'en' => Route::localizedUrl('en', [], false),
             'nl' => Route::localizedUrl('nl', [], false),
@@ -730,7 +730,7 @@ final class LocalizedUrlMacroTest extends TestCase
         $this->withoutExceptionHandling();
         $this->setSupportedLocales(['en', 'nl']);
 
-        Route::get('route', fn() => [
+        Route::get('route', fn () => [
             'current' => Route::localizedUrl(),
             'en' => Route::localizedUrl('en'),
             'nl' => Route::localizedUrl('nl'),
@@ -753,7 +753,7 @@ final class LocalizedUrlMacroTest extends TestCase
         $this->setAppLocale('en');
 
         Route::localized(function () {
-            Route::get('route', fn() => [
+            Route::get('route', fn () => [
                 'current' => Route::localizedUrl(),
                 'en' => Route::localizedUrl('en'),
                 'nl' => Route::localizedUrl('nl'),
@@ -775,7 +775,7 @@ final class LocalizedUrlMacroTest extends TestCase
         $this->withoutExceptionHandling();
         $this->setSupportedLocales(['en', 'nl']);
 
-        Route::get('route', fn() => [
+        Route::get('route', fn () => [
             'current' => Route::localizedUrl(),
             'en' => Route::localizedUrl('en'),
             'nl' => Route::localizedUrl('nl'),
@@ -798,7 +798,7 @@ final class LocalizedUrlMacroTest extends TestCase
         $this->setAppLocale('en');
 
         Route::localized(function () {
-            Route::get('route', fn() => [
+            Route::get('route', fn () => [
                 'current' => Route::localizedUrl(),
                 'en' => Route::localizedUrl('en'),
                 'nl' => Route::localizedUrl('nl'),
@@ -822,7 +822,7 @@ final class LocalizedUrlMacroTest extends TestCase
         $this->setAppLocale('en');
 
         Route::localized(function () {
-            Route::get('route', fn() => [
+            Route::get('route', fn () => [
                 'current' => Route::localizedUrl(null, null, true, $keepQuery = false),
                 'en' => Route::localizedUrl('en', null, true, $keepQuery = false),
                 'nl' => Route::localizedUrl('nl', null, true, $keepQuery = false),
@@ -844,7 +844,7 @@ final class LocalizedUrlMacroTest extends TestCase
         $this->withoutExceptionHandling();
         $this->setSupportedLocales(['en', 'nl']);
 
-        Route::get('route/{slug}/{optional?}', fn() => [
+        Route::get('route/{slug}/{optional?}', fn () => [
             'current' => Route::localizedUrl(null, ['another-slug', 'optional-slug', 'new' => 'value']),
             'en' => Route::localizedUrl('en', ['another-slug', 'optional-slug', 'new' => 'value']),
             'nl' => Route::localizedUrl('nl', ['another-slug', 'optional-slug', 'new' => 'value']),
@@ -865,7 +865,7 @@ final class LocalizedUrlMacroTest extends TestCase
         $this->withoutExceptionHandling();
         $this->setSupportedLocales(['en', 'nl']);
 
-        Route::get('route/{slug}/{optional?}', fn() => [
+        Route::get('route/{slug}/{optional?}', fn () => [
             'current' => Route::localizedUrl(null, ['another-slug', 'optional-slug', 'new' => 'value'], true, $keepQuery = false),
             'en' => Route::localizedUrl('en', ['another-slug', 'optional-slug', 'new' => 'value'], true, $keepQuery = false),
             'nl' => Route::localizedUrl('nl', ['another-slug', 'optional-slug', 'new' => 'value'], true, $keepQuery = false),
@@ -886,7 +886,7 @@ final class LocalizedUrlMacroTest extends TestCase
         $this->withoutExceptionHandling();
         $this->setSupportedLocales(['en', 'nl']);
 
-        Route::get('route/{slug}/{optional?}', fn() => [
+        Route::get('route/{slug}/{optional?}', fn () => [
             'current' => Route::localizedUrl(null, ['another-slug', 'optional-slug', 'new' => 'value']),
             'en' => Route::localizedUrl('en', ['another-slug', 'optional-slug', 'new' => 'value']),
             'nl' => Route::localizedUrl('nl', ['another-slug', 'optional-slug', 'new' => 'value']),
@@ -907,7 +907,7 @@ final class LocalizedUrlMacroTest extends TestCase
         $this->withoutExceptionHandling();
         $this->setSupportedLocales(['en', 'nl']);
 
-        Route::get('route/{slug}/{optional?}', fn() => [
+        Route::get('route/{slug}/{optional?}', fn () => [
             'current' => Route::localizedUrl(null, ['another-slug', 'optional-slug', 'new' => 'value'], true, $keepQuery = false),
             'en' => Route::localizedUrl('en', ['another-slug', 'optional-slug', 'new' => 'value'], true, $keepQuery = false),
             'nl' => Route::localizedUrl('nl', ['another-slug', 'optional-slug', 'new' => 'value'], true, $keepQuery = false),
@@ -938,7 +938,7 @@ final class LocalizedUrlMacroTest extends TestCase
         App::instance(ModelOneWithRouteBinding::class, $model);
 
         Route::localized(function () {
-            Route::get('route/{slug}', fn(ModelOneWithRouteBinding $slug) => [
+            Route::get('route/{slug}', fn (ModelOneWithRouteBinding $slug) => [
                 'current' => Route::localizedUrl(),
                 'en' => Route::localizedUrl('en'),
                 'nl' => Route::localizedUrl('nl'),
@@ -970,7 +970,7 @@ final class LocalizedUrlMacroTest extends TestCase
         App::instance(ModelOneWithRouteBinding::class, $model);
 
         Route::localized(function () {
-            Route::get('route/{slug}', fn(ModelOneWithRouteBinding $slug) => [
+            Route::get('route/{slug}', fn (ModelOneWithRouteBinding $slug) => [
                 'current' => Route::localizedUrl(),
                 'en' => Route::localizedUrl('en'),
                 'nl' => Route::localizedUrl('nl'),
@@ -992,7 +992,7 @@ final class LocalizedUrlMacroTest extends TestCase
         $this->withoutExceptionHandling();
         $this->setSupportedLocales(['en', 'nl']);
 
-        Route::get('route/{slug}/{one?}/{two?}', fn() => [
+        Route::get('route/{slug}/{one?}/{two?}', fn () => [
             'current' => Route::localizedUrl(null, ['another-slug']),
             'en' => Route::localizedUrl('en', ['another-slug']),
             'nl' => Route::localizedUrl('nl', ['another-slug']),
@@ -1013,7 +1013,7 @@ final class LocalizedUrlMacroTest extends TestCase
         $this->withoutExceptionHandling();
         $this->setSupportedLocales(['en', 'nl']);
 
-        Route::get('route/{slug}/{one?}/{two?}', fn() => [
+        Route::get('route/{slug}/{one?}/{two?}', fn () => [
             'current' => Route::localizedUrl(null, ['another-slug']),
             'en' => Route::localizedUrl('en', ['another-slug']),
             'nl' => Route::localizedUrl('nl', ['another-slug']),
@@ -1034,7 +1034,7 @@ final class LocalizedUrlMacroTest extends TestCase
         $this->withoutExceptionHandling();
         $this->setSupportedLocales(['en', 'nl']);
 
-        Route::get('route/{slugWithCaps}/{optionalSlugWithCaps?}', fn() => [
+        Route::get('route/{slugWithCaps}/{optionalSlugWithCaps?}', fn () => [
             'current' => Route::localizedUrl(null, ['another-slug']),
             'en' => Route::localizedUrl('en', ['another-slug']),
             'nl' => Route::localizedUrl('nl', ['another-slug']),
@@ -1066,7 +1066,7 @@ final class LocalizedUrlMacroTest extends TestCase
         ]);
 
         Route::localized(function () {
-            Route::get(Lang::uri('route/my-route'), fn() => [
+            Route::get(Lang::uri('route/my-route'), fn () => [
                 'current' => Route::localizedUrl(),
                 'en' => Route::localizedUrl('en'),
                 'nl' => Route::localizedUrl('nl'),
@@ -1084,8 +1084,6 @@ final class LocalizedUrlMacroTest extends TestCase
 
     /**
      * Set a custom view path so Laravel will find our custom 440 error view.
-     *
-     * @return void
      */
     protected function setCustomErrorViewPath(): void
     {

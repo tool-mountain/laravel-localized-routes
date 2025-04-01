@@ -262,7 +262,7 @@ final class UrlGeneratorTest extends TestCase
         $this->setSupportedLocales(['en', 'nl']);
         $this->setAppLocale('en');
 
-        $callback = fn() => Request::hasValidSignature()
+        $callback = fn () => Request::hasValidSignature()
             ? 'Valid Signature'
             : 'Invalid Signature';
 
@@ -282,7 +282,7 @@ final class UrlGeneratorTest extends TestCase
         $this->setSupportedLocales(['en', 'nl']);
         $this->setAppLocale('en');
 
-        $callback = fn() => Request::hasValidSignature()
+        $callback = fn () => Request::hasValidSignature()
             ? 'Valid Signature'
             : 'Invalid Signature';
 
@@ -302,7 +302,7 @@ final class UrlGeneratorTest extends TestCase
         $this->setSupportedLocales(['en', 'nl']);
         $this->setAppLocale('en');
 
-        $callback = fn() => Request::hasValidSignature()
+        $callback = fn () => Request::hasValidSignature()
             ? 'Valid Signature'
             : 'Expired Signature';
 
@@ -321,7 +321,7 @@ final class UrlGeneratorTest extends TestCase
         $this->setSupportedLocales(['en', 'nl']);
         $this->setAppLocale('en');
 
-        $callback = fn() => Request::hasValidSignature()
+        $callback = fn () => Request::hasValidSignature()
             ? 'Valid Signature'
             : 'Expired Signature';
 
@@ -414,8 +414,6 @@ final class UrlGeneratorTest extends TestCase
 
     /**
      * Cache registered routes.
-     *
-     * @return void
      */
     protected function cacheRoutes(): void
     {
