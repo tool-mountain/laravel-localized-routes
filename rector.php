@@ -52,6 +52,7 @@ use Rector\TypeDeclaration\Rector\Property\TypedPropertyFromStrictSetUpRector;
 return RectorConfig::configure()
     ->withPaths([
         __DIR__.'/src/',
+        __DIR__.'/tests/',
     ])
     ->withRules([
         AddFunctionVoidReturnTypeWhereNoReturnRector::class,
@@ -101,5 +102,4 @@ return RectorConfig::configure()
         TypedPropertyFromJMSSerializerAttributeTypeRector::class,
     ])
     ->withPhpSets(php82: true)
-    ->withDeadCodeLevel(10)
     ->withCodeQualityLevel(10);
