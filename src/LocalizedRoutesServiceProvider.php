@@ -29,10 +29,8 @@ final class LocalizedRoutesServiceProvider extends ServiceProvider
 
     /**
      * Bootstrap any application services.
-     *
-     * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         $this->registerPublishableFiles();
         $this->registerMacros();
@@ -40,10 +38,8 @@ final class LocalizedRoutesServiceProvider extends ServiceProvider
 
     /**
      * Register any application services.
-     *
-     * @return void
      */
-    public function register()
+    public function register(): void
     {
         $this->mergeConfig();
         $this->registerLocaleConfig();
@@ -55,10 +51,8 @@ final class LocalizedRoutesServiceProvider extends ServiceProvider
 
     /**
      * Register macros.
-     *
-     * @return void
      */
-    protected function registerMacros()
+    protected function registerMacros(): void
     {
         HasLocalizedMacro::register();
         IsFallbackMacro::register();
@@ -69,10 +63,8 @@ final class LocalizedRoutesServiceProvider extends ServiceProvider
 
     /**
      * Register the publishable files.
-     *
-     * @return void
      */
-    protected function registerPublishableFiles()
+    protected function registerPublishableFiles(): void
     {
         $this->publishes([
             __DIR__."/../config/{$this->name}.php" => config_path("{$this->name}.php"),
@@ -82,20 +74,16 @@ final class LocalizedRoutesServiceProvider extends ServiceProvider
     /**
      * Merge published configuration file with
      * the original package configuration file.
-     *
-     * @return void
      */
-    protected function mergeConfig()
+    protected function mergeConfig(): void
     {
         $this->mergeConfigFrom(__DIR__."/../config/{$this->name}.php", $this->name);
     }
 
     /**
      * Registers the package dependencies
-     *
-     * @return void
      */
-    protected function registerProviders()
+    protected function registerProviders(): void
     {
         $this->app->register(BrowserLocaleServiceProvider::class);
         $this->app->register(UriTranslatorServiceProvider::class);
@@ -103,26 +91,20 @@ final class LocalizedRoutesServiceProvider extends ServiceProvider
 
     /**
      * Register the LocaleConfig binding.
-     *
-     * @return void
      */
-    protected function registerLocaleConfig()
+    protected function registerLocaleConfig(): void
     {
-        $this->app->bind(LocaleConfig::class, function ($app) {
-            return new LocaleConfig($app['config'][$this->name]);
-        });
+        $this->app->bind(LocaleConfig::class, fn (\Illuminate\Foundation\Application $app) => new LocaleConfig($app['config'][$this->name]));
 
         $this->app->bind('locale-config', LocaleConfig::class);
     }
 
     /**
      * Register LocaleHandler.
-     *
-     * @return void
      */
-    protected function registerLocaleHandler()
+    protected function registerLocaleHandler(): void
     {
-        $this->app->bind(LocaleHandler::class, function ($app) {
+        $this->app->bind(LocaleHandler::class, function (\Illuminate\Foundation\Application $app) {
             $locales = $app['locale-config']->getLocales();
             $detectors = $app['config']->get("{$this->name}.detectors");
             $stores = $app['config']->get("{$this->name}.stores");
@@ -138,12 +120,10 @@ final class LocalizedRoutesServiceProvider extends ServiceProvider
      *
      * This method is an exact copy from:
      * \Illuminate\Routing\RoutingServiceProvider
-     *
-     * @return void
      */
-    protected function registerUrlGenerator()
+    protected function registerUrlGenerator(): void
     {
-        $this->app->singleton('url', function ($app) {
+        $this->app->singleton('url', function (\Illuminate\Foundation\Application $app) {
             $routes = $app['router']->getRoutes();
 
             // The URL generator needs the route collection that exists on the router.
@@ -162,18 +142,14 @@ final class LocalizedRoutesServiceProvider extends ServiceProvider
             // Next we will set a few service resolvers on the URL generator so it can
             // get the information it needs to function. This just provides some of
             // the convenience features to this URL generator like "signed" URLs.
-            $url->setSessionResolver(function () {
-                return $this->app['session'] ?? null;
-            });
+            $url->setSessionResolver(fn () => $this->app['session'] ?? null);
 
-            $url->setKeyResolver(function () {
-                return $this->app->make('config')->get('app.key');
-            });
+            $url->setKeyResolver(fn () => $this->app->make('config')->get('app.key'));
 
             // If the route collection is "rebound", for example, when the routes stay
             // cached for the application, we will need to rebind the routes on the
             // URL generator instance so it has the latest version of the routes.
-            $app->rebinding('routes', function ($app, $routes) {
+            $app->rebinding('routes', function (\Illuminate\Foundation\Application $app, $routes) {
                 $app['url']->setRoutes($routes);
             });
 
@@ -191,7 +167,7 @@ final class LocalizedRoutesServiceProvider extends ServiceProvider
      */
     protected function requestRebinder()
     {
-        return function ($app, $request) {
+        return function (\Illuminate\Foundation\Application $app, $request) {
             $app['url']->setRequest($request);
         };
     }
@@ -202,12 +178,10 @@ final class LocalizedRoutesServiceProvider extends ServiceProvider
      *
      * This method is an exact copy from:
      * \Illuminate\Routing\RoutingServiceProvider
-     *
-     * @return void
      */
-    protected function registerRedirector()
+    protected function registerRedirector(): void
     {
-        $this->app->singleton('redirect', function ($app) {
+        $this->app->singleton('redirect', function (\Illuminate\Foundation\Application $app) {
             $redirector = new Redirector($app['url']);
 
             // If the session is set on the application instance, we'll inject it into

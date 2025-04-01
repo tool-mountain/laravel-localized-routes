@@ -14,10 +14,8 @@ final class ModelWithMultipleRouteParameters extends BaseModel implements Provid
 
     /**
      * Get the route parameters for this model.
-     *
-     * @param  string|null  $locale
      */
-    public function getRouteParameters($locale = null): array
+    public function getRouteParameters(?string $locale = null): array
     {
         return [
             $this->id,

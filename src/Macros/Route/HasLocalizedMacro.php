@@ -12,13 +12,9 @@ final class HasLocalizedMacro
 {
     /**
      * Register the macro.
-     *
-     * @return void
      */
-    public static function register()
+    public static function register(): void
     {
-        Route::macro('hasLocalized', function (string $name, ?string $locale = null) {
-            return App::make(RouteHelper::class)->hasLocalized($name, $locale);
-        });
+        Route::macro('hasLocalized', fn (string $name, ?string $locale = null) => App::make(RouteHelper::class)->hasLocalized($name, $locale));
     }
 }

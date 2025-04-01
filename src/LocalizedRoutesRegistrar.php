@@ -97,9 +97,7 @@ final class LocalizedRoutesRegistrar
 
         // When not using custom slugs or domains, the array keys are numeric.
         // Filter out the omitted locale and then add it back to the end.
-        $locales = array_filter($locales, function ($locale) use ($omittedLocale) {
-            return $locale !== $omittedLocale;
-        });
+        $locales = array_filter($locales, fn ($locale) => $locale !== $omittedLocale);
 
         $locales[] = $omittedLocale;
 

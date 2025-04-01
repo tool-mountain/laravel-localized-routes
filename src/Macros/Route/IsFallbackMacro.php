@@ -12,13 +12,9 @@ final class IsFallbackMacro
 {
     /**
      * Register the macro.
-     *
-     * @return void
      */
-    public static function register()
+    public static function register(): void
     {
-        Route::macro('isFallback', function () {
-            return App::make(RouteHelper::class)->isFallback();
-        });
+        Route::macro('isFallback', fn () => App::make(RouteHelper::class)->isFallback());
     }
 }

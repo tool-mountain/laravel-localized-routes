@@ -25,9 +25,7 @@ final class SetLocaleTest extends TestCase
         $routeAction = ['locale' => 'nl'];
 
         Route::group($routeAction, function () {
-            Route::get('some/route', function () {
-                return App::getLocale();
-            })->middleware(['web', SetLocale::class]);
+            Route::get('some/route', fn () => App::getLocale())->middleware(['web', SetLocale::class]);
         });
 
         $response = $this->get('some/route');
@@ -43,9 +41,7 @@ final class SetLocaleTest extends TestCase
         $this->setSupportedLocales(['en', 'nl']);
         $this->setAppLocale('en');
 
-        Route::get('nl/some/route', function () {
-            return App::getLocale();
-        })->middleware(['web', SetLocale::class]);
+        Route::get('nl/some/route', fn () => App::getLocale())->middleware(['web', SetLocale::class]);
 
         $response = $this->get('nl/some/route');
 
@@ -63,9 +59,7 @@ final class SetLocaleTest extends TestCase
         ]);
         $this->setAppLocale('en');
 
-        Route::get('dutch/some/route', function () {
-            return App::getLocale();
-        })->middleware(['web', SetLocale::class]);
+        Route::get('dutch/some/route', fn () => App::getLocale())->middleware(['web', SetLocale::class]);
 
         $response = $this->get('dutch/some/route');
 
@@ -84,9 +78,7 @@ final class SetLocaleTest extends TestCase
         $this->setAppLocale('en');
 
         Route::group(['domain' => 'dutch.test'], function () {
-            Route::get('some/route', function () {
-                return App::getLocale();
-            })->middleware(['web', SetLocale::class]);
+            Route::get('some/route', fn () => App::getLocale())->middleware(['web', SetLocale::class]);
         });
 
         $response = $this->get('http://dutch.test/some/route');
@@ -104,9 +96,7 @@ final class SetLocaleTest extends TestCase
 
         $this->setOmittedLocale('nl');
 
-        Route::get('some/route', function () {
-            return App::getLocale();
-        })->middleware(['web', SetLocale::class]);
+        Route::get('some/route', fn () => App::getLocale())->middleware(['web', SetLocale::class]);
 
         $response = $this->get('some/route');
 
@@ -125,9 +115,7 @@ final class SetLocaleTest extends TestCase
         $user = new User();
         $user->$attribute = 'nl';
 
-        Route::get('some/route', function () {
-            return App::getLocale();
-        })->middleware(['web', SetLocale::class]);
+        Route::get('some/route', fn () => App::getLocale())->middleware(['web', SetLocale::class]);
 
         $response = $this->actingAs($user)->get('some/route');
 
@@ -148,9 +136,7 @@ final class SetLocaleTest extends TestCase
         $user->exists = true; // exception is only thrown if user "exists"
         Model::preventAccessingMissingAttributes();
 
-        Route::get('some/route', function () {
-            return App::getLocale();
-        })->middleware(['web', SetLocale::class]);
+        Route::get('some/route', fn () => App::getLocale())->middleware(['web', SetLocale::class]);
 
         $response = $this->actingAs($user)->get('some/route');
 
@@ -167,9 +153,7 @@ final class SetLocaleTest extends TestCase
 
         $this->setSessionLocale('nl');
 
-        Route::get('some/route', function () {
-            return App::getLocale();
-        })->middleware(['web', SetLocale::class]);
+        Route::get('some/route', fn () => App::getLocale())->middleware(['web', SetLocale::class]);
 
         $response = $this->get('some/route');
 
@@ -186,9 +170,7 @@ final class SetLocaleTest extends TestCase
 
         $cookie = 'nl';
 
-        Route::get('some/route', function () {
-            return App::getLocale();
-        })->middleware(['web', SetLocale::class]);
+        Route::get('some/route', fn () => App::getLocale())->middleware(['web', SetLocale::class]);
 
         $response = $this->withCookie($this->cookieName, $cookie)
             ->get('some/route');
@@ -206,9 +188,7 @@ final class SetLocaleTest extends TestCase
 
         $this->setBrowserLocales('nl');
 
-        Route::get('some/route', function () {
-            return App::getLocale();
-        })->middleware(['web', SetLocale::class]);
+        Route::get('some/route', fn () => App::getLocale())->middleware(['web', SetLocale::class]);
 
         $response = $this->get('some/route');
 
@@ -225,9 +205,7 @@ final class SetLocaleTest extends TestCase
 
         $this->setBrowserLocales('de,fr;q=0.4,nl-BE;q=0.8');
 
-        Route::get('some/route', function () {
-            return App::getLocale();
-        })->middleware(['web', SetLocale::class]);
+        Route::get('some/route', fn () => App::getLocale())->middleware(['web', SetLocale::class]);
 
         $response = $this->get('some/route');
 
@@ -242,9 +220,7 @@ final class SetLocaleTest extends TestCase
         $this->setSupportedLocales(['en', 'nl']);
         $this->setAppLocale('nl');
 
-        Route::get('some/route', function () {
-            return App::getLocale();
-        })->middleware(['web', SetLocale::class]);
+        Route::get('some/route', fn () => App::getLocale())->middleware(['web', SetLocale::class]);
 
         $response = $this->get('some/route');
 
@@ -266,9 +242,7 @@ final class SetLocaleTest extends TestCase
         ]);
 
         Route::group($routeAction, function () {
-            Route::get('some/route', function () {
-                return App::getLocale();
-            })->middleware(['web', SetLocale::class]);
+            Route::get('some/route', fn () => App::getLocale())->middleware(['web', SetLocale::class]);
         });
 
         $response = $this->get('some/route');
@@ -286,9 +260,7 @@ final class SetLocaleTest extends TestCase
         $this->setOmittedLocale(null);
 
         Route::localized(function () {
-            Route::get('with-scoped-config', function () {
-                return App::getLocale();
-            })->middleware(['web', SetLocale::class]);
+            Route::get('with-scoped-config', fn () => App::getLocale())->middleware(['web', SetLocale::class]);
         }, [
             'omitted_locale' => 'en',
             'supported_locales' => ['en', 'nl', 'de'],
@@ -310,9 +282,7 @@ final class SetLocaleTest extends TestCase
         $this->setSupportedLocales(['en']);
 
         Route::localized(function () {
-            Route::get('with-scoped-config', function () {
-                return App::getLocale();
-            })->middleware(['web', SetLocale::class]);
+            Route::get('with-scoped-config', fn () => App::getLocale())->middleware(['web', SetLocale::class]);
         }, [
             'supported_locales' => ['en', 'nl'],
         ]);

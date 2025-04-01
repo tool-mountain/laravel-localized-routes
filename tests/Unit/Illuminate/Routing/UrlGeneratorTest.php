@@ -94,9 +94,9 @@ final class UrlGeneratorTest extends TestCase
         Route::get('en/route')->name('en.route.name');
         Route::get('nl/route')->name('nl.route.name');
 
-        $this->assertEquals(URL::to('nl/route'), URL::route('route.name', [], true, 'nl'));
-        $this->assertEquals(URL::to('nl/route'), URL::route('en.route.name', [], true, 'nl'));
-        $this->assertEquals(URL::to('nl/route'), URL::route('nl.route.name', [], true, 'nl'));
+        $this->assertEquals(URL::to('nl/route'), URL::route('route.name', locale: 'nl'));
+        $this->assertEquals(URL::to('nl/route'), URL::route('en.route.name', locale: 'nl'));
+        $this->assertEquals(URL::to('nl/route'), URL::route('nl.route.name', locale: 'nl'));
     }
 
     #[Test]
@@ -111,9 +111,9 @@ final class UrlGeneratorTest extends TestCase
         Route::get('route')->name('en.route.name')->domain('en.domain.test');
         Route::get('route')->name('nl.route.name')->domain('nl.domain.test');
 
-        $this->assertEquals('http://nl.domain.test/route', URL::route('route.name', [], true, 'nl'));
-        $this->assertEquals('http://nl.domain.test/route', URL::route('en.route.name', [], true, 'nl'));
-        $this->assertEquals('http://nl.domain.test/route', URL::route('nl.route.name', [], true, 'nl'));
+        $this->assertEquals('http://nl.domain.test/route', URL::route('route.name', locale: 'nl'));
+        $this->assertEquals('http://nl.domain.test/route', URL::route('en.route.name', locale: 'nl'));
+        $this->assertEquals('http://nl.domain.test/route', URL::route('nl.route.name', locale: 'nl'));
     }
 
     #[Test]
@@ -127,9 +127,9 @@ final class UrlGeneratorTest extends TestCase
         Route::get('english/route')->name('en.route.name');
         Route::get('dutch/route')->name('nl.route.name');
 
-        $this->assertEquals(URL::to('dutch/route'), URL::route('route.name', [], true, 'nl'));
-        $this->assertEquals(URL::to('dutch/route'), URL::route('en.route.name', [], true, 'nl'));
-        $this->assertEquals(URL::to('dutch/route'), URL::route('nl.route.name', [], true, 'nl'));
+        $this->assertEquals(URL::to('dutch/route'), URL::route('route.name', locale: 'nl'));
+        $this->assertEquals(URL::to('dutch/route'), URL::route('en.route.name', locale: 'nl'));
+        $this->assertEquals(URL::to('dutch/route'), URL::route('nl.route.name', locale: 'nl'));
     }
 
     #[Test]
@@ -141,7 +141,7 @@ final class UrlGeneratorTest extends TestCase
         Route::get('route')->name('route.name');
         Route::get('nl/route')->name('nl.route.name');
 
-        $this->assertEquals(URL::to('nl/route'), URL::route('route.name', [], true, 'nl'));
+        $this->assertEquals(URL::to('nl/route'), URL::route('route.name', locale: 'nl'));
     }
 
     #[Test]
@@ -153,7 +153,7 @@ final class UrlGeneratorTest extends TestCase
         Route::get('route')->name('route.name');
         Route::get('nl/route')->name('nl.route.name');
 
-        $this->assertEquals(URL::to('route'), URL::route('route.name', [], true, 'en'));
+        $this->assertEquals(URL::to('route'), URL::route('route.name', locale: 'en'));
     }
 
     #[Test]
@@ -166,7 +166,7 @@ final class UrlGeneratorTest extends TestCase
 
         $this->expectException(RouteNotFoundException::class);
 
-        URL::route('en.route.name', [], true, 'nl');
+        URL::route('en.route.name', locale: 'nl');
     }
 
     #[Test]
@@ -179,9 +179,9 @@ final class UrlGeneratorTest extends TestCase
         Route::get('en/route')->name('en.route');
         Route::get('nl/route')->name('nl.route');
 
-        $this->assertEquals(URL::to('en/route'), URL::route('route', [], true, 'en'));
-        $this->assertEquals(URL::to('nl/route'), URL::route('route', [], true, 'nl'));
-        $this->assertEquals(URL::to('en/route'), URL::route('route', [], true, 'fr'));
+        $this->assertEquals(URL::to('en/route'), URL::route('route', locale: 'en'));
+        $this->assertEquals(URL::to('nl/route'), URL::route('route', locale: 'nl'));
+        $this->assertEquals(URL::to('en/route'), URL::route('route', locale: 'fr'));
     }
 
     #[Test]
@@ -193,8 +193,8 @@ final class UrlGeneratorTest extends TestCase
 
         Route::get('en/route')->name('en.route');
 
-        $this->assertEquals(URL::to('en/route'), URL::route('route', [], true, 'en'));
-        $this->assertEquals(URL::to('en/route'), URL::route('route', [], true, 'nl'));
+        $this->assertEquals(URL::to('en/route'), URL::route('route', locale: 'en'));
+        $this->assertEquals(URL::to('en/route'), URL::route('route', locale: 'nl'));
     }
 
     #[Test]
@@ -207,7 +207,7 @@ final class UrlGeneratorTest extends TestCase
 
         $this->expectException(RouteNotFoundException::class);
 
-        URL::route('en.', [], true, 'en');
+        URL::route('en.', locale: 'en');
     }
 
     #[Test]
@@ -229,8 +229,8 @@ final class UrlGeneratorTest extends TestCase
         Route::get('nl/route/{slug}')->name('nl.route.name');
 
         $this->assertEquals(URL::to('en/route/en-slug'), URL::route('route.name', [$model]));
-        $this->assertEquals(URL::to('en/route/en-slug'), URL::route('route.name', [$model], true, 'en'));
-        $this->assertEquals(URL::to('nl/route/nl-slug'), URL::route('route.name', [$model], true, 'nl'));
+        $this->assertEquals(URL::to('en/route/en-slug'), URL::route('route.name', [$model], locale: 'en'));
+        $this->assertEquals(URL::to('nl/route/nl-slug'), URL::route('route.name', [$model], locale: 'nl'));
     }
 
     #[Test]
@@ -252,8 +252,8 @@ final class UrlGeneratorTest extends TestCase
         Route::get('nl/route/{model:slug}')->name('nl.route.name');
 
         $this->assertEquals(URL::to('en/route/en-slug'), URL::route('route.name', [$model]));
-        $this->assertEquals(URL::to('en/route/en-slug'), URL::route('route.name', [$model], true, 'en'));
-        $this->assertEquals(URL::to('nl/route/nl-slug'), URL::route('route.name', [$model], true, 'nl'));
+        $this->assertEquals(URL::to('en/route/en-slug'), URL::route('route.name', [$model], locale: 'en'));
+        $this->assertEquals(URL::to('nl/route/nl-slug'), URL::route('route.name', [$model], locale: 'nl'));
     }
 
     #[Test]
@@ -262,11 +262,9 @@ final class UrlGeneratorTest extends TestCase
         $this->setSupportedLocales(['en', 'nl']);
         $this->setAppLocale('en');
 
-        $callback = function () {
-            return Request::hasValidSignature()
-                ? 'Valid Signature'
-                : 'Invalid Signature';
-        };
+        $callback = fn () => Request::hasValidSignature()
+            ? 'Valid Signature'
+            : 'Invalid Signature';
 
         Route::get('en/route', $callback)->name('en.route.name');
         Route::get('en/other/route', $callback)->name('en.other.route.name');
@@ -284,16 +282,14 @@ final class UrlGeneratorTest extends TestCase
         $this->setSupportedLocales(['en', 'nl']);
         $this->setAppLocale('en');
 
-        $callback = function () {
-            return Request::hasValidSignature()
-                ? 'Valid Signature'
-                : 'Invalid Signature';
-        };
+        $callback = fn () => Request::hasValidSignature()
+            ? 'Valid Signature'
+            : 'Invalid Signature';
 
         Route::get('en/route', $callback)->name('en.route.name');
         Route::get('nl/route', $callback)->name('nl.route.name');
 
-        $validUrl = URL::signedRoute('route.name', [], null, true, 'nl');
+        $validUrl = URL::signedRoute('route.name', locale: 'nl');
         $tamperedUrl = str_replace('nl/route', 'en/route', $validUrl);
 
         $this->get($validUrl)->assertSee('Valid Signature');
@@ -306,11 +302,9 @@ final class UrlGeneratorTest extends TestCase
         $this->setSupportedLocales(['en', 'nl']);
         $this->setAppLocale('en');
 
-        $callback = function () {
-            return Request::hasValidSignature()
-                ? 'Valid Signature'
-                : 'Expired Signature';
-        };
+        $callback = fn () => Request::hasValidSignature()
+            ? 'Valid Signature'
+            : 'Expired Signature';
 
         Route::get('en/route', $callback)->name('en.route.name');
 
@@ -327,17 +321,15 @@ final class UrlGeneratorTest extends TestCase
         $this->setSupportedLocales(['en', 'nl']);
         $this->setAppLocale('en');
 
-        $callback = function () {
-            return Request::hasValidSignature()
-                ? 'Valid Signature'
-                : 'Expired Signature';
-        };
+        $callback = fn () => Request::hasValidSignature()
+            ? 'Valid Signature'
+            : 'Expired Signature';
 
         Route::get('en/route', $callback)->name('en.route.name');
         Route::get('nl/route', $callback)->name('nl.route.name');
 
-        $validUrl = URL::temporarySignedRoute('route.name', now()->addHour(), [], true, 'nl');
-        $expiredUrl = URL::temporarySignedRoute('route.name', now()->subHour(), [], true, 'nl');
+        $validUrl = URL::temporarySignedRoute('route.name', now()->addHour(), locale: 'nl');
+        $expiredUrl = URL::temporarySignedRoute('route.name', now()->subHour(), locale: 'nl');
 
         $this->get($validUrl)->assertSee('Valid Signature');
         $this->get($expiredUrl)->assertSee('Expired Signature');
@@ -357,8 +349,8 @@ final class UrlGeneratorTest extends TestCase
         $this->setAppLocale('en');
 
         try {
-            URL::route('missing.route', [], true, 'nl');
-        } catch (RouteNotFoundException $exception) {
+            URL::route('missing.route', locale: 'nl');
+        } catch (RouteNotFoundException) {
         }
 
         $this->assertEquals('en', App::getLocale());
@@ -378,8 +370,8 @@ final class UrlGeneratorTest extends TestCase
         $this->setAppLocale('en');
 
         try {
-            URL::signedRoute('missing.route', [], null, true, 'nl');
-        } catch (RouteNotFoundException $exception) {
+            URL::signedRoute('missing.route', locale: 'nl');
+        } catch (RouteNotFoundException) {
         }
 
         $this->assertEquals('en', App::getLocale());
@@ -399,8 +391,8 @@ final class UrlGeneratorTest extends TestCase
         $this->setAppLocale('en');
 
         try {
-            URL::temporarySignedRoute('missing.route', now()->addMinutes(30), [], true, 'nl');
-        } catch (RouteNotFoundException $exception) {
+            URL::temporarySignedRoute('missing.route', now()->addMinutes(30), locale: 'nl');
+        } catch (RouteNotFoundException) {
         }
 
         $this->assertEquals('en', App::getLocale());
@@ -422,10 +414,8 @@ final class UrlGeneratorTest extends TestCase
 
     /**
      * Cache registered routes.
-     *
-     * @return void
      */
-    protected function cacheRoutes()
+    protected function cacheRoutes(): void
     {
         $routes = Route::getRoutes();
 

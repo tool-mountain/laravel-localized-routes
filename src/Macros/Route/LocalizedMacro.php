@@ -12,10 +12,8 @@ final class LocalizedMacro
 {
     /**
      * Register the macro.
-     *
-     * @return void
      */
-    public static function register()
+    public static function register(): void
     {
         Route::macro('localized', function ($closure, $options = []) {
             App::make(LocalizedRoutesRegistrar::class)->register($closure, $options);

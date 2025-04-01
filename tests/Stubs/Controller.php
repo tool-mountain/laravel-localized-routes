@@ -6,7 +6,7 @@ namespace ToolMountain\LocalizedRoutes\Tests\Stubs;
 
 final class Controller extends \Illuminate\Routing\Controller
 {
-    public function index()
+    public function index(): string
     {
         return 'ok';
     }
