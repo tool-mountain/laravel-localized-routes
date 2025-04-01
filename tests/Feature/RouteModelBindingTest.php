@@ -1,13 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes\Tests\Feature;
 
-use PHPUnit\Framework\Attributes\Test;
-use ToolMountain\LocalizedRoutes\Middleware\SetLocale;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
-use ToolMountain\LocalizedRoutes\Tests\TestCase;
+use PHPUnit\Framework\Attributes\Test;
+use ToolMountain\LocalizedRoutes\Middleware\SetLocale;
 use ToolMountain\LocalizedRoutes\Tests\Stubs\Models\ModelOneWithRouteBinding;
+use ToolMountain\LocalizedRoutes\Tests\TestCase;
 
 final class RouteModelBindingTest extends TestCase
 {

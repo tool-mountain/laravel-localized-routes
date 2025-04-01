@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes\Tests\Stubs;
 
-class Controller extends \Illuminate\Routing\Controller
+final class Controller extends \Illuminate\Routing\Controller
 {
     public function index()
     {

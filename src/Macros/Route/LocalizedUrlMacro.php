@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes\Macros\Route;
 
-use ToolMountain\LocalizedRoutes\LocalizedUrlGenerator;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
+use ToolMountain\LocalizedRoutes\LocalizedUrlGenerator;
 
-class LocalizedUrlMacro
+final class LocalizedUrlMacro
 {
     /**
      * Register the macro.

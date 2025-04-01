@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes\Middleware\Detectors;
 
 use Illuminate\Support\Facades\App;
 
-class AppDetector implements Detector
+final class AppDetector implements Detector
 {
     /**
      * Detect the locale.

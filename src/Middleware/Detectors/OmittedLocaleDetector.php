@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes\Middleware\Detectors;
 
 use Illuminate\Support\Facades\Config;
 
-class OmittedLocaleDetector implements Detector
+final class OmittedLocaleDetector implements Detector
 {
     /**
      * Detect the locale.

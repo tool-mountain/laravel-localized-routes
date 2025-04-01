@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes\Facades;
 
 use Illuminate\Support\Facades\Facade;
@@ -9,7 +11,7 @@ use Illuminate\Support\Facades\Facade;
  *
  * @mixin \ToolMountain\LocalizedRoutes\LocaleConfig
  */
-class LocaleConfig extends Facade
+final class LocaleConfig extends Facade
 {
     /**
      * Get the registered name of the component.

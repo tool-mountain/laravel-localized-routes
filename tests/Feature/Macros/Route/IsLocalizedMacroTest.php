@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes\Tests\Feature\Macros\Route;
 
+use Illuminate\Support\Facades\Route;
 use PHPUnit\Framework\Attributes\Test;
 use ToolMountain\LocalizedRoutes\Tests\TestCase;
-use Illuminate\Support\Facades\Route;
 
 final class IsLocalizedMacroTest extends TestCase
 {

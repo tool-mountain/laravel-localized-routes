@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes\Macros\Route;
 
-use ToolMountain\LocalizedRoutes\RouteHelper;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
+use ToolMountain\LocalizedRoutes\RouteHelper;
 
-class IsFallbackMacro
+final class IsFallbackMacro
 {
     /**
      * Register the macro.

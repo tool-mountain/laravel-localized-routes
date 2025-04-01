@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes\Tests\Unit;
 
 use PHPUnit\Framework\Attributes\Test;

@@ -1,8 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes;
 
-class LocaleConfig
+final class LocaleConfig
 {
     /**
      * The configured supported locales.
@@ -34,8 +36,6 @@ class LocaleConfig
 
     /**
      * Create a new LocaleConfig instance.
-     *
-     * @param array $config
      */
     public function __construct(array $config = [])
     {
@@ -47,8 +47,6 @@ class LocaleConfig
 
     /**
      * Get the configured supported locales.
-     *
-     * @return array
      */
     public function getSupportedLocales(): array
     {
@@ -57,10 +55,6 @@ class LocaleConfig
 
     /**
      * Set the supported locales.
-     *
-     * @param array $locales
-     *
-     * @return void
      */
     public function setSupportedLocales(array $locales): void
     {
@@ -69,8 +63,6 @@ class LocaleConfig
 
     /**
      * Get the locale that should be omitted in the URI path.
-     *
-     * @return string|null
      */
     public function getOmittedLocale(): ?string
     {
@@ -79,10 +71,6 @@ class LocaleConfig
 
     /**
      * Set the locale that should be omitted in the URI path.
-     *
-     * @param string|null $locale
-     *
-     * @return void
      */
     public function setOmittedLocale(?string $locale): void
     {
@@ -91,8 +79,6 @@ class LocaleConfig
 
     /**
      * Get the fallback locale.
-     *
-     * @return string|null
      */
     public function getFallbackLocale(): ?string
     {
@@ -101,10 +87,6 @@ class LocaleConfig
 
     /**
      * Set the fallback locale.
-     *
-     * @param string|null $locale
-     *
-     * @return void
      */
     public function setFallbackLocale(?string $locale): void
     {
@@ -113,8 +95,6 @@ class LocaleConfig
 
     /**
      * Get the route action that holds a route's locale.
-     *
-     * @return string|null
      */
     public function getRouteAction(): ?string
     {
@@ -123,10 +103,6 @@ class LocaleConfig
 
     /**
      * Set the route action that holds a route's locale.
-     *
-     * @param string $action
-     *
-     * @return string
      */
     public function setRouteAction(string $action): string
     {
@@ -135,8 +111,6 @@ class LocaleConfig
 
     /**
      * Get the locales (not the slugs or domains).
-     *
-     * @return array
      */
     public function getLocales(): array
     {
@@ -151,14 +125,10 @@ class LocaleConfig
 
     /**
      * Find the slug that belongs to the given locale.
-     *
-     * @param string $locale
-     *
-     * @return string|null
      */
     public function findSlugByLocale(string $locale): ?string
     {
-        if ( ! $this->isSupportedLocale($locale) || $this->hasCustomDomains()) {
+        if (! $this->isSupportedLocale($locale) || $this->hasCustomDomains()) {
             return null;
         }
 
@@ -167,14 +137,10 @@ class LocaleConfig
 
     /**
      * Find the domain that belongs to the given locale.
-     *
-     * @param string $locale
-     *
-     * @return string|null
      */
     public function findDomainByLocale(string $locale): ?string
     {
-        if ( ! $this->isSupportedLocale($locale) || ! $this->hasCustomDomains()) {
+        if (! $this->isSupportedLocale($locale) || ! $this->hasCustomDomains()) {
             return null;
         }
 
@@ -183,10 +149,6 @@ class LocaleConfig
 
     /**
      * Find the locale that belongs to the given slug.
-     *
-     * @param ?string $slug
-     *
-     * @return string|null
      */
     public function findLocaleBySlug(?string $slug): ?string
     {
@@ -203,14 +165,10 @@ class LocaleConfig
 
     /**
      * Find the locale that belongs to the given domain.
-     *
-     * @param string $domain
-     *
-     * @return string|null
      */
     public function findLocaleByDomain(string $domain): ?string
     {
-        if ( ! $this->hasCustomDomains()) {
+        if (! $this->hasCustomDomains()) {
             return null;
         }
 
@@ -219,8 +177,6 @@ class LocaleConfig
 
     /**
      * Check if there are any locales configured.
-     *
-     * @return bool
      */
     public function hasLocales(): bool
     {
@@ -230,8 +186,6 @@ class LocaleConfig
     /**
      * Check if there are only locales configured,
      * and not custom slugs or domains.
-     *
-     * @return bool
      */
     public function hasSimpleLocales(): bool
     {
@@ -240,8 +194,6 @@ class LocaleConfig
 
     /**
      * Check if custom slugs are configured.
-     *
-     * @return bool
      */
     public function hasCustomSlugs(): bool
     {
@@ -250,23 +202,17 @@ class LocaleConfig
 
     /**
      * Check if custom domains are configured.
-     *
-     * @return bool
      */
     public function hasCustomDomains(): bool
     {
         $firstValue = array_values($this->getSupportedLocales())[0] ?? '';
-        $containsDot =  strpos($firstValue, '.') !== false;
+        $containsDot = strpos($firstValue, '.') !== false;
 
         return $containsDot;
     }
 
     /**
      * Check if the given locale is supported.
-     *
-     * @param string|null $locale
-     *
-     * @return bool
      */
     public function isSupportedLocale(?string $locale): bool
     {

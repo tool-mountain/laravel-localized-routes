@@ -1,13 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes\Tests\Feature\Macros\Route;
 
-use PHPUnit\Framework\Attributes\Test;
-use ToolMountain\LocalizedRoutes\Middleware\SetLocale;
-use ToolMountain\LocalizedRoutes\Tests\Stubs\Models\ModelOneWithRouteBinding;
-use ToolMountain\LocalizedRoutes\Tests\Stubs\Models\ModelTwoWithRouteBinding;
-use ToolMountain\LocalizedRoutes\Tests\Stubs\Models\ModelWithMultipleRouteParameters;
-use ToolMountain\LocalizedRoutes\Tests\TestCase;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
@@ -15,6 +11,12 @@ use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\View;
+use PHPUnit\Framework\Attributes\Test;
+use ToolMountain\LocalizedRoutes\Middleware\SetLocale;
+use ToolMountain\LocalizedRoutes\Tests\Stubs\Models\ModelOneWithRouteBinding;
+use ToolMountain\LocalizedRoutes\Tests\Stubs\Models\ModelTwoWithRouteBinding;
+use ToolMountain\LocalizedRoutes\Tests\Stubs\Models\ModelWithMultipleRouteParameters;
+use ToolMountain\LocalizedRoutes\Tests\TestCase;
 
 final class LocalizedUrlMacroTest extends TestCase
 {
@@ -1003,7 +1005,7 @@ final class LocalizedUrlMacroTest extends TestCase
 
         App::instance(ModelOneWithRouteBinding::class, $model);
 
-        Route::localized(function () use ($model) {
+        Route::localized(function () {
             Route::get('route/{slug}', function (ModelOneWithRouteBinding $slug) {
                 return [
                     'current' => Route::localizedUrl(),
@@ -1037,7 +1039,7 @@ final class LocalizedUrlMacroTest extends TestCase
 
         App::instance(ModelOneWithRouteBinding::class, $model);
 
-        Route::localized(function () use ($model) {
+        Route::localized(function () {
             Route::get('route/{slug}', function (ModelOneWithRouteBinding $slug) {
                 return [
                     'current' => Route::localizedUrl(),
@@ -1167,6 +1169,6 @@ final class LocalizedUrlMacroTest extends TestCase
      */
     protected function setCustomErrorViewPath()
     {
-        Config::set('view.paths', [__DIR__ . '/../../../Stubs/views']);
+        Config::set('view.paths', [__DIR__.'/../../../Stubs/views']);
     }
 }

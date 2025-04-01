@@ -1,10 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes\Tests;
 
 use CodeZero\BrowserLocale\BrowserLocale;
-use ToolMountain\LocalizedRoutes\LocalizedRoutesServiceProvider;
-use ToolMountain\UriTranslator\UriTranslatorServiceProvider;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
@@ -16,10 +16,13 @@ use Illuminate\Support\Str;
 use Illuminate\Testing\TestResponse;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 use PHPUnit\Framework\Assert;
+use ToolMountain\LocalizedRoutes\LocalizedRoutesServiceProvider;
+use ToolMountain\UriTranslator\UriTranslatorServiceProvider;
 
-abstract class TestCase extends  BaseTestCase
+abstract class TestCase extends BaseTestCase
 {
     protected $sessionKey;
+
     protected $cookieName;
 
     protected function defineEnvironment($app): void
@@ -44,10 +47,6 @@ abstract class TestCase extends  BaseTestCase
 
     /**
      * Skip test if laravel version is lower than the given version.
-     *
-     * @param string $version
-     *
-     * @return void
      */
     protected function skipTestIfLaravelVersionIsLowerThan(string $version): void
     {
@@ -58,10 +57,6 @@ abstract class TestCase extends  BaseTestCase
 
     /**
      * Set the app locale.
-     *
-     * @param string $locale
-     *
-     * @return void
      */
     protected function setAppLocale(string $locale): void
     {
@@ -70,10 +65,6 @@ abstract class TestCase extends  BaseTestCase
 
     /**
      * Set the supported locales config option.
-     *
-     * @param array $locales
-     *
-     * @return void
      */
     protected function setSupportedLocales(array $locales): void
     {
@@ -82,10 +73,6 @@ abstract class TestCase extends  BaseTestCase
 
     /**
      * Set the fallback locale config option.
-     *
-     * @param string|null $locale
-     *
-     * @return void
      */
     protected function setFallbackLocale(?string $locale): void
     {
@@ -94,10 +81,6 @@ abstract class TestCase extends  BaseTestCase
 
     /**
      * Set the 'omitted_locale' config option.
-     *
-     * @param string|null $locale
-     *
-     * @return void
      */
     protected function setOmittedLocale(?string $locale): void
     {
@@ -106,10 +89,6 @@ abstract class TestCase extends  BaseTestCase
 
     /**
      * Set the locale in the session.
-     *
-     * @param string $locale
-     *
-     * @return void
      */
     protected function setSessionLocale(string $locale): void
     {
@@ -118,10 +97,6 @@ abstract class TestCase extends  BaseTestCase
 
     /**
      * Set the locales used by the browser detector.
-     *
-     * @param string|null $locales
-     *
-     * @return void
      */
     protected function setBrowserLocales(?string $locales): void
     {
@@ -132,10 +107,6 @@ abstract class TestCase extends  BaseTestCase
 
     /**
      * Set the 'redirect_to_localized_urls' config option.
-     *
-     * @param bool $value
-     *
-     * @return void
      */
     protected function setRedirectToLocalizedUrls(bool $value): void
     {
@@ -145,25 +116,18 @@ abstract class TestCase extends  BaseTestCase
     /**
      * Fake that we created a routes.php file in 'resources/lang/'
      * for each language with the given translations.
-     *
-     * @param array $translations
-     * @param string $namespace
-     *
-     * @return void
      */
     protected function setTranslations(array $translations, string $namespace = '*'): void
     {
         Lang::setLoaded([
             $namespace => [
-                'routes' => $translations
-            ]
+                'routes' => $translations,
+            ],
         ]);
     }
 
     /**
      * Get the currently registered routes.
-     *
-     * @return \Illuminate\Support\Collection
      */
     protected function getRoutes(): Collection
     {
@@ -176,9 +140,7 @@ abstract class TestCase extends  BaseTestCase
     /**
      * Resolve application Console Kernel implementation.
      *
-     * @param \Illuminate\Foundation\Application $app
-     *
-     * @return void
+     * @param  \Illuminate\Foundation\Application  $app
      */
     protected function resolveApplicationHttpKernel($app): void
     {
@@ -194,9 +156,7 @@ abstract class TestCase extends  BaseTestCase
     /**
      * Get the packages service providers.
      *
-     * @param \Illuminate\Foundation\Application $app
-     *
-     * @return array
+     * @param  \Illuminate\Foundation\Application  $app
      */
     protected function getPackageProviders($app): array
     {

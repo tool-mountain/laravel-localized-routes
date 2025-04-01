@@ -1,23 +1,23 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes\Middleware\Detectors;
 
-use ToolMountain\LocalizedRoutes\Facades\LocaleConfig;
 use Illuminate\Http\Request;
+use ToolMountain\LocalizedRoutes\Facades\LocaleConfig;
 
-class UrlDetector implements Detector
+final class UrlDetector implements Detector
 {
     /**
      * The current Request.
      *
-     * @var \Illuminate\Http\Request
+     * @var Request
      */
     protected $request;
 
     /**
      * Create a new UrlDetector instance.
-     *
-     * @param \Illuminate\Http\Request $request
      */
     public function __construct(Request $request)
     {
@@ -35,7 +35,7 @@ class UrlDetector implements Detector
 
         // If supported locales is a simple array like ['en', 'nl']
         // just return the slug and let the calling code check if it is supported.
-        if ( ! LocaleConfig::hasLocales() || LocaleConfig::hasSimpleLocales()) {
+        if (! LocaleConfig::hasLocales() || LocaleConfig::hasSimpleLocales()) {
             return $slug;
         }
 

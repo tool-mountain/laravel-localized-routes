@@ -1,18 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes\Tests\Stubs\Models;
 
 use Illuminate\Database\Eloquent\Model as BaseModel;
 use Illuminate\Support\Facades\App;
 
-class ModelTwoWithRouteBinding extends BaseModel
+final class ModelTwoWithRouteBinding extends BaseModel
 {
     protected $guarded = [];
 
     /**
      * Get the (fake) slug attribute.
-     *
-     * @return string
      */
     protected function getSlugAttribute(): string
     {
@@ -21,10 +21,6 @@ class ModelTwoWithRouteBinding extends BaseModel
 
     /**
      * Get the localized slug.
-     *
-     * @param string|null $locale
-     *
-     * @return string
      */
     public function getSlug(?string $locale = null): string
     {
@@ -34,9 +30,8 @@ class ModelTwoWithRouteBinding extends BaseModel
     /**
      * Fake route model binding.
      *
-     * @param mixed $value
-     * @param string|null $field
-     *
+     * @param  mixed  $value
+     * @param  string|null  $field
      * @return mixed
      */
     public function resolveRouteBinding($value, $field = null)

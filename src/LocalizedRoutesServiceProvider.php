@@ -1,8 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes;
 
+use Closure;
 use CodeZero\BrowserLocale\Laravel\BrowserLocaleServiceProvider;
+use Illuminate\Contracts\Routing\UrlGenerator as UrlGeneratorContract;
+use Illuminate\Support\ServiceProvider;
 use ToolMountain\LocalizedRoutes\Illuminate\Routing\Redirector;
 use ToolMountain\LocalizedRoutes\Illuminate\Routing\UrlGenerator;
 use ToolMountain\LocalizedRoutes\Macros\Route\HasLocalizedMacro;
@@ -12,10 +17,8 @@ use ToolMountain\LocalizedRoutes\Macros\Route\LocalizedMacro;
 use ToolMountain\LocalizedRoutes\Macros\Route\LocalizedUrlMacro;
 use ToolMountain\LocalizedRoutes\Middleware\LocaleHandler;
 use ToolMountain\UriTranslator\UriTranslatorServiceProvider;
-use Illuminate\Contracts\Routing\UrlGenerator as UrlGeneratorContract;
-use Illuminate\Support\ServiceProvider;
 
-class LocalizedRoutesServiceProvider extends ServiceProvider
+final class LocalizedRoutesServiceProvider extends ServiceProvider
 {
     /**
      * The package name.
@@ -184,7 +187,7 @@ class LocalizedRoutesServiceProvider extends ServiceProvider
      * This method is an exact copy from:
      * \Illuminate\Routing\RoutingServiceProvider
      *
-     * @return \Closure
+     * @return Closure
      */
     protected function requestRebinder()
     {

@@ -1,16 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes\Tests\Feature\Middleware;
 
-use PHPUnit\Framework\Attributes\Test;
-use ToolMountain\LocalizedRoutes\Facades\LocaleConfig;
-use ToolMountain\LocalizedRoutes\Middleware\SetLocale;
-use ToolMountain\LocalizedRoutes\Tests\TestCase;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
+use PHPUnit\Framework\Attributes\Test;
+use ToolMountain\LocalizedRoutes\Facades\LocaleConfig;
+use ToolMountain\LocalizedRoutes\Middleware\SetLocale;
+use ToolMountain\LocalizedRoutes\Tests\TestCase;
 
 final class SetLocaleTest extends TestCase
 {

@@ -1,14 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes;
 
-use ToolMountain\LocalizedRoutes\Facades\LocaleConfig;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
+use ToolMountain\LocalizedRoutes\Facades\LocaleConfig;
 
-class RouteHelper
+final class RouteHelper
 {
     /**
      * The current Route.
@@ -19,8 +21,6 @@ class RouteHelper
 
     /**
      * Create a new RouteHelper instance.
-     *
-     * @param \Illuminate\Http\Request $request
      */
     public function __construct(Request $request)
     {
@@ -29,8 +29,6 @@ class RouteHelper
 
     /**
      * Check if the current route is a fallback route.
-     *
-     * @return bool
      */
     public function isFallback(): bool
     {
@@ -40,10 +38,8 @@ class RouteHelper
     /**
      * Check if the current route is localized.
      *
-     * @param string|array $patterns
-     * @param string|array $locales
-     *
-     * @return bool
+     * @param  string|array  $patterns
+     * @param  string|array  $locales
      */
     public function isLocalized($patterns = null, $locales = '*'): bool
     {
@@ -54,11 +50,6 @@ class RouteHelper
 
     /**
      * Check if a localized route exists.
-     *
-     * @param string $name
-     * @param string|null $locale
-     *
-     * @return bool
      */
     public function hasLocalized(string $name, ?string $locale = null): bool
     {
@@ -69,8 +60,6 @@ class RouteHelper
 
     /**
      * Check if the current route is localized.
-     *
-     * @return bool
      */
     protected function isCurrentRouteLocalized(): bool
     {
@@ -82,10 +71,8 @@ class RouteHelper
     /**
      * Check if the current route is localized and has a specific name.
      *
-     * @param string|array $patterns
-     * @param string|array $locales
-     *
-     * @return bool
+     * @param  string|array  $patterns
+     * @param  string|array  $locales
      */
     protected function isCurrentRouteLocalizedWithNamePattern($patterns = null, $locales = '*'): bool
     {
@@ -94,7 +81,7 @@ class RouteHelper
 
         Collection::make($patterns)->each(function ($name) use ($locales, $names) {
             $locales->each(function ($locale) use ($name, $names) {
-                $names->push($locale . '.' . $name);
+                $names->push($locale.'.'.$name);
             });
         });
 

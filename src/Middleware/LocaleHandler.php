@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes\Middleware;
 
 use Illuminate\Support\Facades\App;
 
-class LocaleHandler
+final class LocaleHandler
 {
     /**
      * Supported locales.
@@ -37,10 +39,10 @@ class LocaleHandler
     /**
      * Create a new LocaleHandler instance.
      *
-     * @param \Illuminate\Support\Collection|array $locales
-     * @param \Illuminate\Support\Collection|array $detectors
-     * @param \Illuminate\Support\Collection|array $stores
-     * @param \Illuminate\Support\Collection|array $trustedDetectors
+     * @param  \Illuminate\Support\Collection|array  $locales
+     * @param  \Illuminate\Support\Collection|array  $detectors
+     * @param  \Illuminate\Support\Collection|array  $stores
+     * @param  \Illuminate\Support\Collection|array  $trustedDetectors
      */
     public function __construct($locales, $detectors, $stores = [], $trustedDetectors = [])
     {
@@ -52,8 +54,6 @@ class LocaleHandler
 
     /**
      * Detect any supported locale and return the first match.
-     *
-     * @return string|null
      */
     public function detect(): ?string
     {
@@ -72,10 +72,6 @@ class LocaleHandler
 
     /**
      * Store the given locale.
-     *
-     * @param string $locale
-     *
-     * @return void
      */
     public function store(string $locale): void
     {
@@ -86,10 +82,6 @@ class LocaleHandler
 
     /**
      * Check if the given locale is supported.
-     *
-     * @param string|null $locale
-     *
-     * @return bool
      */
     protected function isSupportedLocale(?string $locale): bool
     {
@@ -99,9 +91,7 @@ class LocaleHandler
     /**
      * Check if the given Detector class is trusted.
      *
-     * @param \ToolMountain\LocalizedRoutes\Middleware\Detectors\Detector|string $detector
-     *
-     * @return bool
+     * @param  Detectors\Detector|string  $detector
      */
     protected function isTrustedDetector($detector): bool
     {
@@ -121,8 +111,7 @@ class LocaleHandler
     /**
      * Get the class from Laravel's IOC container if it is a string.
      *
-     * @param mixed $class
-     *
+     * @param  mixed  $class
      * @return mixed
      */
     protected function getInstance($class)

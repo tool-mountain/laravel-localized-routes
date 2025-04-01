@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes\Tests\Unit\Illuminate\Routing;
 
-use PHPUnit\Framework\Attributes\Test;
-use ToolMountain\LocalizedRoutes\Tests\TestCase;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;
+use PHPUnit\Framework\Attributes\Test;
+use ToolMountain\LocalizedRoutes\Tests\TestCase;
 
 final class RedirectorTest extends TestCase
 {

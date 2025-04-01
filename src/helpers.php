@@ -1,14 +1,15 @@
 <?php
 
-if ( ! function_exists('route')) {
+declare(strict_types=1);
+
+if (! function_exists('route')) {
     /**
      * Generate the URL to a named route.
      *
-     * @param string $name
-     * @param array $parameters
-     * @param bool $absolute
-     * @param string|null $locale
-     *
+     * @param  string  $name
+     * @param  array  $parameters
+     * @param  bool  $absolute
+     * @param  string|null  $locale
      * @return string
      */
     function route($name, $parameters = [], $absolute = true, $locale = null)
