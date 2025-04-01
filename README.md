@@ -7,8 +7,6 @@
 [![Codecov](https://img.shields.io/codecov/c/github/tool-mountain/laravel-localized-routes?style=flat-square-square)](https://codecov.io/gh/tool-mountain/laravel-localized-routes)
 [![Total Downloads](https://img.shields.io/packagist/dt/tool-mountain/laravel-localized-routes.svg?style=flat-square)](https://packagist.org/packages/tool-mountain/laravel-localized-routes)
 
-[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/R6R3UQ8V)
-
 A convenient way to set up and use localized routes in a Laravel app.
 
 ## 📖 Table of Contents
