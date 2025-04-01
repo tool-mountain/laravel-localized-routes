@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes\Middleware\Detectors;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 
-class UserDetector implements Detector
+final class UserDetector implements Detector
 {
     /**
      * Detect the locale.

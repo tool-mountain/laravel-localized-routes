@@ -1,21 +1,18 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes;
 
 use Closure;
-use ToolMountain\LocalizedRoutes\Facades\LocaleConfig;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
+use ToolMountain\LocalizedRoutes\Facades\LocaleConfig;
 
-class LocalizedRoutesRegistrar
+final class LocalizedRoutesRegistrar
 {
     /**
      * Register routes for every configured locale.
-     *
-     * @param Closure $closure
-     * @param array $options
-     *
-     * @return void
      */
     public function register(Closure $closure, array $options = []): void
     {
@@ -41,7 +38,7 @@ class LocalizedRoutesRegistrar
         foreach ($locales as $locale => $domainOrSlug) {
             // If the locale key is numeric, we have a simple array of locales.
             // In this case, the locale is the same as the slug.
-            if ( ! $usingDomains && ! $usingCustomSlugs) {
+            if (! $usingDomains && ! $usingCustomSlugs) {
                 $locale = $domainOrSlug;
             }
 
@@ -61,7 +58,7 @@ class LocalizedRoutesRegistrar
 
             // Add a URL prefix to the route group, unless
             // the locale is configured to be omitted.
-            if ( ! $usingDomains && $locale !== $omittedLocale) {
+            if (! $usingDomains && $locale !== $omittedLocale) {
                 $attributes['prefix'] = $domainOrSlug;
             }
 
@@ -80,17 +77,10 @@ class LocalizedRoutesRegistrar
 
     /**
      * Move the omitted locale to the end of the locales array.
-     *
-     * @param array $locales
-     * @param string|null $omittedLocale
-     * @param bool $usingDomains
-     * @param bool $usingCustomSlugs
-     *
-     * @return array
      */
     protected function moveOmittedLocaleToEnd(array $locales, ?string $omittedLocale, bool $usingDomains, bool $usingCustomSlugs): array
     {
-        if ( ! $omittedLocale || $usingDomains) {
+        if (! $omittedLocale || $usingDomains) {
             return $locales;
         }
 

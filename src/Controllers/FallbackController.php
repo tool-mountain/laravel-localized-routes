@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes\Controllers;
 
 use Illuminate\Http\Request;
@@ -10,7 +12,7 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 
-class FallbackController extends Controller
+final class FallbackController extends Controller
 {
     /**
      * Handle the fallback route.
@@ -29,7 +31,7 @@ class FallbackController extends Controller
      */
     protected function redirectResponse()
     {
-        if ( ! $this->shouldRedirect()) {
+        if (! $this->shouldRedirect()) {
             return false;
         }
 
@@ -48,7 +50,6 @@ class FallbackController extends Controller
     /**
      * Find a Route by its URL.
      *
-     * @param string $url
      *
      * @return \Illuminate\Routing\Route
      */

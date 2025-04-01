@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes\Middleware\Detectors;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 
-class RouteActionDetector implements Detector
+final class RouteActionDetector implements Detector
 {
     /**
      * The current Route.
@@ -16,8 +18,6 @@ class RouteActionDetector implements Detector
 
     /**
      * Create a new RouteActionDetector instance.
-     *
-     * @param \Illuminate\Http\Request $request
      */
     public function __construct(Request $request)
     {

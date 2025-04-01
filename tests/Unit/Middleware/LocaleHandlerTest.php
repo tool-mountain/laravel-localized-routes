@@ -1,14 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes\Tests\Unit\Middleware;
 
+use Illuminate\Support\Facades\App;
+use Mockery;
 use PHPUnit\Framework\Attributes\Test;
 use ToolMountain\LocalizedRoutes\Middleware\Detectors\Detector;
 use ToolMountain\LocalizedRoutes\Middleware\LocaleHandler;
 use ToolMountain\LocalizedRoutes\Middleware\Stores\Store;
 use ToolMountain\LocalizedRoutes\Tests\TestCase;
-use Illuminate\Support\Facades\App;
-use Mockery;
 
 final class LocaleHandlerTest extends TestCase
 {

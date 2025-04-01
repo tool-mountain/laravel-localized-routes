@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 return [
 
     /**
@@ -76,14 +78,14 @@ return [
      * These will be executed in the order that they are added to the array!
      */
     'detectors' => [
-        ToolMountain\LocalizedRoutes\Middleware\Detectors\RouteActionDetector::class, //=> required for scoped config
-        ToolMountain\LocalizedRoutes\Middleware\Detectors\UrlDetector::class, //=> required
-        ToolMountain\LocalizedRoutes\Middleware\Detectors\OmittedLocaleDetector::class, //=> required for omitted locale
+        ToolMountain\LocalizedRoutes\Middleware\Detectors\RouteActionDetector::class, // => required for scoped config
+        ToolMountain\LocalizedRoutes\Middleware\Detectors\UrlDetector::class, // => required
+        ToolMountain\LocalizedRoutes\Middleware\Detectors\OmittedLocaleDetector::class, // => required for omitted locale
         ToolMountain\LocalizedRoutes\Middleware\Detectors\UserDetector::class,
         ToolMountain\LocalizedRoutes\Middleware\Detectors\SessionDetector::class,
         ToolMountain\LocalizedRoutes\Middleware\Detectors\CookieDetector::class,
         ToolMountain\LocalizedRoutes\Middleware\Detectors\BrowserDetector::class,
-        ToolMountain\LocalizedRoutes\Middleware\Detectors\AppDetector::class, //=> required
+        ToolMountain\LocalizedRoutes\Middleware\Detectors\AppDetector::class, // => required
     ],
 
     /**
@@ -92,7 +94,7 @@ return [
      * as the app locale, regardless if it's a supported locale or not.
      */
     'trusted_detectors' => [
-        ToolMountain\LocalizedRoutes\Middleware\Detectors\RouteActionDetector::class //=> required for scoped config
+        ToolMountain\LocalizedRoutes\Middleware\Detectors\RouteActionDetector::class, // => required for scoped config
     ],
 
     /**
@@ -101,7 +103,7 @@ return [
     'stores' => [
         ToolMountain\LocalizedRoutes\Middleware\Stores\SessionStore::class,
         ToolMountain\LocalizedRoutes\Middleware\Stores\CookieStore::class,
-        ToolMountain\LocalizedRoutes\Middleware\Stores\AppStore::class, //=> required
+        ToolMountain\LocalizedRoutes\Middleware\Stores\AppStore::class, // => required
     ],
 
 ];

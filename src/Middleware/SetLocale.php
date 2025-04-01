@@ -1,22 +1,22 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes\Middleware;
 
 use Closure;
 
-class SetLocale
+final class SetLocale
 {
     /**
      * LocaleHandler.
      *
-     * @var \ToolMountain\LocalizedRoutes\Middleware\LocaleHandler
+     * @var LocaleHandler
      */
     protected $handler;
 
     /**
      * Create a new SetLocale instance.
-     *
-     * @param \ToolMountain\LocalizedRoutes\Middleware\LocaleHandler $handler
      */
     public function __construct(LocaleHandler $handler)
     {
@@ -26,9 +26,7 @@ class SetLocale
     /**
      * Handle an incoming request.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param \Closure $next
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return mixed
      */
     public function handle($request, Closure $next)

@@ -1,22 +1,25 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes\Illuminate\Routing;
 
-use ToolMountain\LocalizedRoutes\Facades\LocaleConfig;
+use DateInterval;
+use DateTimeInterface;
 use Illuminate\Routing\UrlGenerator as BaseUrlGenerator;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
+use ToolMountain\LocalizedRoutes\Facades\LocaleConfig;
 
-class UrlGenerator extends BaseUrlGenerator
+final class UrlGenerator extends BaseUrlGenerator
 {
     /**
      * Resolve the URL to a named route or a localized version of it.
      *
-     * @param string $name
-     * @param array $parameters
-     * @param bool $absolute
-     * @param string|null $locale
-     *
+     * @param  string  $name
+     * @param  array  $parameters
+     * @param  bool  $absolute
+     * @param  string|null  $locale
      * @return string
      */
     public function route($name, $parameters = [], $absolute = true, $locale = null)
@@ -47,12 +50,11 @@ class UrlGenerator extends BaseUrlGenerator
     /**
      * Create a signed route URL for a named route.
      *
-     * @param string $name
-     * @param mixed $parameters
-     * @param \DateInterval|\DateTimeInterface|int|null $expiration
-     * @param bool $absolute
-     * @param string|null $locale
-     *
+     * @param  string  $name
+     * @param  mixed  $parameters
+     * @param  DateInterval|DateTimeInterface|int|null  $expiration
+     * @param  bool  $absolute
+     * @param  string|null  $locale
      * @return string
      */
     public function signedRoute($name, $parameters = [], $expiration = null, $absolute = true, $locale = null)
@@ -83,12 +85,11 @@ class UrlGenerator extends BaseUrlGenerator
     /**
      * Create a temporary signed route URL for a named route.
      *
-     * @param string $name
-     * @param \DateTimeInterface|\DateInterval|int $expiration
-     * @param array $parameters
-     * @param bool $absolute
-     * @param string|null $locale
-     *
+     * @param  string  $name
+     * @param  DateTimeInterface|DateInterval|int  $expiration
+     * @param  array  $parameters
+     * @param  bool  $absolute
+     * @param  string|null  $locale
      * @return string
      */
     public function temporarySignedRoute($name, $expiration, $parameters = [], $absolute = true, $locale = null)
@@ -99,10 +100,9 @@ class UrlGenerator extends BaseUrlGenerator
     /**
      * Resolve a localized version of the route name in the given locale.
      *
-     * @param string $name
-     * @param string|null $locale
-     * @param string $currentLocale
-     *
+     * @param  string  $name
+     * @param  string|null  $locale
+     * @param  string  $currentLocale
      * @return string
      */
     protected function resolveLocalizedRouteName($name, $locale, $currentLocale)
@@ -129,7 +129,7 @@ class UrlGenerator extends BaseUrlGenerator
 
         // If the localized route name doesn't exist,
         // use a fallback locale if one is configured.
-        if ( ! Route::has($newName) && $fallbackLocale) {
+        if (! Route::has($newName) && $fallbackLocale) {
             $newName = "{$fallbackLocale}.{$baseName}";
         }
 
@@ -147,8 +147,7 @@ class UrlGenerator extends BaseUrlGenerator
     /**
      * Strip the locale from the beginning of a route name.
      *
-     * @param string $name
-     *
+     * @param  string  $name
      * @return string
      */
     protected function stripLocaleFromRouteName($name)
@@ -168,7 +167,7 @@ class UrlGenerator extends BaseUrlGenerator
         }
 
         // Rebuild the normalized route name.
-        $name = join('.', $parts);
+        $name = implode('.', $parts);
 
         return $name;
     }

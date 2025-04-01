@@ -1,18 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes\Tests\Unit\Illuminate\Routing;
 
-use PHPUnit\Framework\Attributes\Test;
-use ToolMountain\LocalizedRoutes\Tests\Stubs\Controller;
-use ToolMountain\LocalizedRoutes\Tests\Stubs\Models\ModelOneWithRouteBinding;
-use ToolMountain\LocalizedRoutes\Tests\TestCase;
-use ToolMountain\LocalizedRoutes\Illuminate\Routing\UrlGenerator;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\URL;
 use InvalidArgumentException;
+use PHPUnit\Framework\Attributes\Test;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
+use ToolMountain\LocalizedRoutes\Illuminate\Routing\UrlGenerator;
+use ToolMountain\LocalizedRoutes\Tests\Stubs\Controller;
+use ToolMountain\LocalizedRoutes\Tests\Stubs\Models\ModelOneWithRouteBinding;
+use ToolMountain\LocalizedRoutes\Tests\TestCase;
 
 final class UrlGeneratorTest extends TestCase
 {
@@ -168,7 +170,7 @@ final class UrlGeneratorTest extends TestCase
     }
 
     #[Test]
-    function it_uses_a_fallback_locale_when_the_requested_locale_is_unsupported(): void
+    public function it_uses_a_fallback_locale_when_the_requested_locale_is_unsupported(): void
     {
         $this->setSupportedLocales(['en', 'nl']);
         $this->setAppLocale('en');
@@ -356,7 +358,8 @@ final class UrlGeneratorTest extends TestCase
 
         try {
             URL::route('missing.route', [], true, 'nl');
-        } catch (RouteNotFoundException $exception) {}
+        } catch (RouteNotFoundException $exception) {
+        }
 
         $this->assertEquals('en', App::getLocale());
     }
@@ -376,7 +379,8 @@ final class UrlGeneratorTest extends TestCase
 
         try {
             URL::signedRoute('missing.route', [], null, true, 'nl');
-        } catch (RouteNotFoundException $exception) {}
+        } catch (RouteNotFoundException $exception) {
+        }
 
         $this->assertEquals('en', App::getLocale());
     }
@@ -396,7 +400,8 @@ final class UrlGeneratorTest extends TestCase
 
         try {
             URL::temporarySignedRoute('missing.route', now()->addMinutes(30), [], true, 'nl');
-        } catch (RouteNotFoundException $exception) {}
+        } catch (RouteNotFoundException $exception) {
+        }
 
         $this->assertEquals('en', App::getLocale());
     }

@@ -1,22 +1,24 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes;
 
-use ToolMountain\LocalizedRoutes\Facades\LocaleConfig;
 use CodeZero\UrlBuilder\UrlBuilder;
+use Illuminate\Contracts\Routing\UrlRoutable;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
-use Illuminate\Contracts\Routing\UrlRoutable;
+use Illuminate\Support\Facades\URL;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
+use ToolMountain\LocalizedRoutes\Facades\LocaleConfig;
 
-class LocalizedUrlGenerator
+final class LocalizedUrlGenerator
 {
     /**
      * The current Request.
      *
-     * @var \Illuminate\Http\Request
+     * @var Request
      */
     protected $request;
 
@@ -29,8 +31,6 @@ class LocalizedUrlGenerator
 
     /**
      * Create a new LocalizedUrlGenerator instance.
-     *
-     * @param \Illuminate\Http\Request $request
      */
     public function __construct(Request $request)
     {
@@ -41,14 +41,9 @@ class LocalizedUrlGenerator
     /**
      * Generate a localized URL for the current request.
      *
-     * @param string|null $locale
-     * @param mixed $parameters
-     * @param bool $absolute
-     * @param bool $keepQuery
-     *
-     * @return string
+     * @param  mixed  $parameters
      */
-    public function generateFromRequest(string $locale = null, $parameters = null, bool $absolute = true, bool $keepQuery = true): string
+    public function generateFromRequest(?string $locale = null, $parameters = null, bool $absolute = true, bool $keepQuery = true): string
     {
         $urlBuilder = UrlBuilder::make($this->request->fullUrl());
         $requestQueryString = $urlBuilder->getQuery();
@@ -62,7 +57,7 @@ class LocalizedUrlGenerator
             ?? LocaleConfig::findLocaleByDomain($currentDomain)
             ?? App::getLocale();
 
-        if ( ! $this->is404()) {
+        if (! $this->is404()) {
             // Use the provided parameter values or get them from the current route.
             // Parameters passed to this method may also contain query string parameters.
             // $parameters can be an array, a function, or it can contain model instances!
@@ -77,7 +72,7 @@ class LocalizedUrlGenerator
             // $routePlaceholders contains "{key}" => "value" pairs.
             // $routeParameters contains "key" => "value" pairs.
             // $queryStringParameters contains "key" => "value" pairs.
-            list($routePlaceholders, $routeParameters, $queryStringParameters) = $this->extractRouteAndQueryStringParameters($routeUri, $normalizedParameters);
+            [$routePlaceholders, $routeParameters, $queryStringParameters] = $this->extractRouteAndQueryStringParameters($routeUri, $normalizedParameters);
 
             $urlBuilder->setQuery(
                 $this->determineQueryStringParameters($requestQueryString, $queryStringParameters, $keepQuery)
@@ -85,7 +80,7 @@ class LocalizedUrlGenerator
 
             // Generate the URL using the route's name, if possible.
             if ($url = $this->generateNamedRouteURL($locale, $routeParameters, $absolute)) {
-                return $urlBuilder->getQueryString() ? $url . '?' . $urlBuilder->getQueryString() : $url;
+                return $urlBuilder->getQueryString() ? $url.'?'.$urlBuilder->getQueryString() : $url;
             }
 
             // If a named route could not be resolved, replace the parameter
@@ -98,7 +93,7 @@ class LocalizedUrlGenerator
         // and it is either a 404, fallback or localized route,
         // (so it is not a registered, non localized route)
         // update the locale slug in the URI.
-        if ( ! LocaleConfig::hasCustomDomains() && ($this->is404() || $this->isLocalized())) {
+        if (! LocaleConfig::hasCustomDomains() && ($this->is404() || $this->isLocalized())) {
             $urlBuilder->setSlugs($this->updateLocaleInSlugs($urlBuilder->getSlugs(), $locale));
         }
 
@@ -113,12 +108,6 @@ class LocalizedUrlGenerator
 
     /**
      * Generate a URL for a named route.
-     *
-     * @param string $locale
-     * @param array $parameters
-     * @param bool $absolute
-     *
-     * @return string
      */
     protected function generateNamedRouteURL(string $locale, array $parameters = [], bool $absolute = true): string
     {
@@ -131,8 +120,6 @@ class LocalizedUrlGenerator
 
     /**
      * Check if the current route is localized.
-     *
-     * @return bool
      */
     protected function isLocalized(): bool
     {
@@ -144,8 +131,6 @@ class LocalizedUrlGenerator
     /**
      * Check if the current request is a 404.
      * Default 404 requests will not have a Route.
-     *
-     * @return bool
      */
     protected function is404(): bool
     {
@@ -154,8 +139,6 @@ class LocalizedUrlGenerator
 
     /**
      * Check if the current route is a fallback route.
-     *
-     * @return bool
      */
     protected function isFallback(): bool
     {
@@ -164,8 +147,6 @@ class LocalizedUrlGenerator
 
     /**
      * Check if the current Route exists.
-     *
-     * @return bool
      */
     protected function routeExists(): bool
     {
@@ -174,10 +155,6 @@ class LocalizedUrlGenerator
 
     /**
      * Get the locale from the slugs if it exists.
-     *
-     * @param array $slugs
-     *
-     * @return string|null
      */
     protected function getLocaleFromSlugs(array $slugs): ?string
     {
@@ -192,11 +169,6 @@ class LocalizedUrlGenerator
 
     /**
      * Localize the URL path.
-     *
-     * @param array $slugs
-     * @param string $locale
-     *
-     * @return array
      */
     protected function updateLocaleInSlugs(array $slugs, string $locale): array
     {
@@ -215,12 +187,6 @@ class LocalizedUrlGenerator
 
     /**
      * Determine what query string parameters to use.
-     *
-     * @param array $requestQueryString
-     * @param array $queryStringParameters
-     * @param bool $keepQuery
-     *
-     * @return array
      */
     protected function determineQueryStringParameters(array $requestQueryString, array $queryStringParameters, bool $keepQuery): array
     {
@@ -237,11 +203,6 @@ class LocalizedUrlGenerator
 
     /**
      * Extract URI parameters and query string parameters.
-     *
-     * @param string $uri
-     * @param array $parameters
-     *
-     * @return array
      */
     protected function extractRouteAndQueryStringParameters(string $uri, array $parameters): array
     {
@@ -277,11 +238,6 @@ class LocalizedUrlGenerator
 
     /**
      * Replace parameter placeholders with their value.
-     *
-     * @param string $uri
-     * @param array $parameters
-     *
-     * @return string
      */
     protected function replaceParameterPlaceholders(string $uri, array $parameters): string
     {
@@ -298,10 +254,7 @@ class LocalizedUrlGenerator
     /**
      * Normalize any route parameters.
      *
-     * @param string $locale
-     * @param mixed $parameters
-     *
-     * @return array
+     * @param  mixed  $parameters
      */
     protected function normalizeParameters(string $locale, $parameters): array
     {
@@ -330,8 +283,6 @@ class LocalizedUrlGenerator
 
     /**
      * Get the current route's parameters.
-     *
-     * @return array
      */
     protected function getRouteParameters(): array
     {
@@ -340,12 +291,6 @@ class LocalizedUrlGenerator
 
     /**
      * Get the localized route key from a model.
-     *
-     * @param string $key
-     * @param \Illuminate\Contracts\Routing\UrlRoutable $model
-     * @param string $locale
-     *
-     * @return string
      */
     protected function getLocalizedRouteKey(string $key, UrlRoutable $model, string $locale): string
     {
@@ -368,9 +313,7 @@ class LocalizedUrlGenerator
      * Route::get('path/{model:key}')
      * If you did not use a custom key, we'll use the default route key.
      *
-     * @param string|int $key
-     *
-     * @return string|null
+     * @param  string|int  $key
      */
     protected function getBindingFieldFor($key): ?string
     {

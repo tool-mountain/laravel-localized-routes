@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes\Middleware\Detectors;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
 
-class SessionDetector implements Detector
+final class SessionDetector implements Detector
 {
     /**
      * Detect the locale.

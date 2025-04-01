@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace ToolMountain\LocalizedRoutes\Middleware\Detectors;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Cookie;
 
-class CookieDetector implements Detector
+final class CookieDetector implements Detector
 {
     /**
      * Detect the locale.
