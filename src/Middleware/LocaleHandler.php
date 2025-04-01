@@ -9,34 +9,6 @@ use Illuminate\Support\Facades\App;
 final class LocaleHandler
 {
     /**
-     * Supported locales.
-     *
-     * @var \Illuminate\Support\Collection|array
-     */
-    protected $locales;
-
-    /**
-     * \ToolMountain\LocalizedRoutes\Middleware\Detectors\Detector class names or instances.
-     *
-     * @var \Illuminate\Support\Collection|array
-     */
-    protected $detectors;
-
-    /**
-     * \ToolMountain\LocalizedRoutes\Middleware\Stores\Store class names or instances.
-     *
-     * @var \Illuminate\Support\Collection|array
-     */
-    protected $stores;
-
-    /**
-     * \ToolMountain\LocalizedRoutes\Middleware\Detectors\Detector class names.
-     *
-     * @var \Illuminate\Support\Collection|array
-     */
-    protected $trustedDetectors;
-
-    /**
      * Create a new LocaleHandler instance.
      *
      * @param  \Illuminate\Support\Collection|array  $locales
@@ -44,13 +16,24 @@ final class LocaleHandler
      * @param  \Illuminate\Support\Collection|array  $stores
      * @param  \Illuminate\Support\Collection|array  $trustedDetectors
      */
-    public function __construct($locales, $detectors, $stores = [], $trustedDetectors = [])
-    {
-        $this->locales = $locales;
-        $this->detectors = $detectors;
-        $this->stores = $stores;
-        $this->trustedDetectors = $trustedDetectors;
-    }
+    public function __construct(
+        /**
+         * Supported locales.
+         */
+        protected $locales,
+        /**
+         * \ToolMountain\LocalizedRoutes\Middleware\Detectors\Detector class names or instances.
+         */
+        protected $detectors,
+        /**
+         * \ToolMountain\LocalizedRoutes\Middleware\Stores\Store class names or instances.
+         */
+        protected $stores = [],
+        /**
+         * \ToolMountain\LocalizedRoutes\Middleware\Detectors\Detector class names.
+         */
+        protected $trustedDetectors = []
+    ) {}
 
     /**
      * Detect any supported locale and return the first match.

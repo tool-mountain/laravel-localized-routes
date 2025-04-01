@@ -12,13 +12,9 @@ final class LocalizedUrlMacro
 {
     /**
      * Register the macro.
-     *
-     * @return void
      */
-    public static function register()
+    public static function register(): void
     {
-        Route::macro('localizedUrl', function ($locale = null, $parameters = null, $absolute = true, $keepQuery = true) {
-            return App::make(LocalizedUrlGenerator::class)->generateFromRequest($locale, $parameters, $absolute, $keepQuery);
-        });
+        Route::macro('localizedUrl', fn ($locale = null, $parameters = null, $absolute = true, $keepQuery = true) => App::make(LocalizedUrlGenerator::class)->generateFromRequest($locale, $parameters, $absolute, $keepQuery));
     }
 }

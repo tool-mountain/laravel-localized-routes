@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace ToolMountain\LocalizedRoutes;
 
+use Closure;
 use CodeZero\UrlBuilder\UrlBuilder;
 use Illuminate\Contracts\Routing\UrlRoutable;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\URL;
@@ -16,26 +18,17 @@ use ToolMountain\LocalizedRoutes\Facades\LocaleConfig;
 final class LocalizedUrlGenerator
 {
     /**
-     * The current Request.
-     *
-     * @var Request
-     */
-    protected $request;
-
-    /**
      * The current Route.
-     *
-     * @var \Illuminate\Routing\Route
      */
-    protected $route;
+    protected ?Route $route;
 
     /**
      * Create a new LocalizedUrlGenerator instance.
      */
-    public function __construct(Request $request)
-    {
-        $this->request = $request;
-        $this->route = $request->route();
+    public function __construct(
+        protected Request $request,
+    ) {
+        $this->route = $this->request->route();
     }
 
     /**
@@ -52,8 +45,7 @@ final class LocalizedUrlGenerator
         $currentLocaleSlug = $urlBuilder->getSlugs()[0] ?? null;
 
         // Determine in which locale the URL needs to be localized.
-        $locale = $locale
-            ?? LocaleConfig::findLocaleBySlug($currentLocaleSlug)
+        $locale ??= LocaleConfig::findLocaleBySlug($currentLocaleSlug)
             ?? LocaleConfig::findLocaleByDomain($currentDomain)
             ?? App::getLocale();
 
@@ -113,7 +105,7 @@ final class LocalizedUrlGenerator
     {
         try {
             return URL::route($this->route->getName(), $parameters, $absolute, $locale);
-        } catch (RouteNotFoundException $e) {
+        } catch (RouteNotFoundException) {
             return '';
         }
     }
@@ -246,26 +238,18 @@ final class LocalizedUrlGenerator
         }
 
         // Remove any optional placeholders that were not provided.
-        $uri = preg_replace('/{[a-zA-Z_.-]+\?}/', '', $uri);
-
-        return $uri;
+        return preg_replace('/{[a-zA-Z_.-]+\?}/', '', $uri);
     }
 
     /**
      * Normalize any route parameters.
-     *
-     * @param  mixed  $parameters
      */
-    protected function normalizeParameters(string $locale, $parameters): array
+    protected function normalizeParameters(string $locale, mixed $parameters): array
     {
-        $models = Collection::make($parameters)->filter(function ($model) {
-            return $model instanceof ProvidesRouteParameters;
-        });
+        $models = Collection::make($parameters)->filter(fn ($model) => $model instanceof ProvidesRouteParameters);
 
         if ($models->count()) {
-            $parameters = $models->flatMap(function ($model) use ($locale) {
-                return $model->getRouteParameters($locale);
-            })->all();
+            $parameters = $models->flatMap(fn ($model) => $model->getRouteParameters($locale))->all();
         }
 
         if (is_callable($parameters)) {
@@ -312,10 +296,8 @@ final class LocalizedUrlGenerator
      * The binding field is the custom route key that you can define in your route:
      * Route::get('path/{model:key}')
      * If you did not use a custom key, we'll use the default route key.
-     *
-     * @param  string|int  $key
      */
-    protected function getBindingFieldFor($key): ?string
+    protected function getBindingFieldFor(int|string $key): ?string
     {
         return $this->route->bindingFieldFor($key);
     }

@@ -80,7 +80,7 @@ final class RouteHelper
         $names = Collection::make();
 
         Collection::make($patterns)->each(function ($name) use ($locales, $names) {
-            $locales->each(function ($locale) use ($name, $names) {
+            $locales->each(function (string $locale) use ($name, $names) {
                 $names->push($locale.'.'.$name);
             });
         });

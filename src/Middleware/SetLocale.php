@@ -9,19 +9,14 @@ use Closure;
 final class SetLocale
 {
     /**
-     * LocaleHandler.
-     *
-     * @var LocaleHandler
-     */
-    protected $handler;
-
-    /**
      * Create a new SetLocale instance.
      */
-    public function __construct(LocaleHandler $handler)
-    {
-        $this->handler = $handler;
-    }
+    public function __construct(
+        /**
+         * LocaleHandler.
+         */
+        protected LocaleHandler $handler
+    ) {}
 
     /**
      * Handle an incoming request.

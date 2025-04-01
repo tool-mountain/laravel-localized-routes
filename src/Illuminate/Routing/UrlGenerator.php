@@ -19,10 +19,9 @@ final class UrlGenerator extends BaseUrlGenerator
      * @param  string  $name
      * @param  array  $parameters
      * @param  bool  $absolute
-     * @param  string|null  $locale
      * @return string
      */
-    public function route($name, $parameters = [], $absolute = true, $locale = null)
+    public function route($name, $parameters = [], $absolute = true, ?string $locale = null)
     {
         // Cache the current locale, so we can change it to automatically
         // resolve any translatable route parameters such as slugs.
@@ -54,10 +53,9 @@ final class UrlGenerator extends BaseUrlGenerator
      * @param  mixed  $parameters
      * @param  DateInterval|DateTimeInterface|int|null  $expiration
      * @param  bool  $absolute
-     * @param  string|null  $locale
      * @return string
      */
-    public function signedRoute($name, $parameters = [], $expiration = null, $absolute = true, $locale = null)
+    public function signedRoute($name, $parameters = [], $expiration = null, $absolute = true, ?string $locale = null)
     {
         // Cache the current locale, so we can change it to automatically
         // resolve any translatable route parameters such as slugs.
@@ -89,10 +87,9 @@ final class UrlGenerator extends BaseUrlGenerator
      * @param  DateTimeInterface|DateInterval|int  $expiration
      * @param  array  $parameters
      * @param  bool  $absolute
-     * @param  string|null  $locale
      * @return string
      */
-    public function temporarySignedRoute($name, $expiration, $parameters = [], $absolute = true, $locale = null)
+    public function temporarySignedRoute($name, $expiration, $parameters = [], $absolute = true, ?string $locale = null)
     {
         return $this->signedRoute($name, $parameters, $expiration, $absolute, $locale);
     }

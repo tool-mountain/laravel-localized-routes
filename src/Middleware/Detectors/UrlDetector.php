@@ -10,19 +10,14 @@ use ToolMountain\LocalizedRoutes\Facades\LocaleConfig;
 final class UrlDetector implements Detector
 {
     /**
-     * The current Request.
-     *
-     * @var Request
-     */
-    protected $request;
-
-    /**
      * Create a new UrlDetector instance.
      */
-    public function __construct(Request $request)
-    {
-        $this->request = $request;
-    }
+    public function __construct(
+        /**
+         * The current Request.
+         */
+        protected Request $request
+    ) {}
 
     /**
      * Detect the locale.

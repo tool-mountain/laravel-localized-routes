@@ -12,9 +12,8 @@ final class AppStore implements Store
      * Store the given locale.
      *
      * @param  string  $locale
-     * @return void
      */
-    public function store($locale)
+    public function store($locale): void
     {
         App::setLocale($locale);
     }

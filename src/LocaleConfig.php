@@ -206,7 +206,7 @@ final class LocaleConfig
     public function hasCustomDomains(): bool
     {
         $firstValue = array_values($this->getSupportedLocales())[0] ?? '';
-        $containsDot = strpos($firstValue, '.') !== false;
+        $containsDot = str_contains((string) $firstValue, '.');
 
         return $containsDot;
     }
