@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace ToolMountain\LocalizedRoutes;
 
-use Closure;
 use CodeZero\UrlBuilder\UrlBuilder;
 use Illuminate\Contracts\Routing\UrlRoutable;
 use Illuminate\Http\Request;
