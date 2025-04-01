@@ -1,11 +1,10 @@
 # Laravel Localized Routes
 
 [![GitHub release](https://img.shields.io/github/release/tool-mountain/laravel-localized-routes.svg?style=flat-square)](https://github.com/tool-mountain/laravel-localized-routes/releases)
-[![Laravel](https://img.shields.io/badge/laravel-11-red?style=flat-square&logo=laravel&logoColor=white)](https://laravel.com)
+[![Laravel](https://img.shields.io/badge/laravel-12-red?style=flat-square&logo=laravel&logoColor=white)](https://laravel.com)
 [![License](https://img.shields.io/packagist/l/tool-mountain/laravel-localized-routes.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/tool-mountain/laravel-localized-routes/run-tests.yml?style=flat-square&logo=github&logoColor=white&label=tests)](https://github.com/tool-mountain/laravel-localized-routes/actions)
-[![Code Coverage](https://img.shields.io/codacy/coverage/a5db8a1321664e67900c96eadc575ece/master?style=flat-square)](https://app.codacy.com/gh/tool-mountain/laravel-localized-routes)
-[![Code Quality](https://img.shields.io/codacy/grade/a5db8a1321664e67900c96eadc575ece/master?style=flat-square)](https://app.codacy.com/gh/tool-mountain/laravel-localized-routes)
+[![Codecov](https://img.shields.io/codecov/c/github/tool-mountain/laravel-localized-routes?style=flat-square-square)](https://codecov.io/gh/tool-mountain/laravel-localized-routes)
 [![Total Downloads](https://img.shields.io/packagist/dt/tool-mountain/laravel-localized-routes.svg?style=flat-square)](https://packagist.org/packages/tool-mountain/laravel-localized-routes)
 
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/R6R3UQ8V)
