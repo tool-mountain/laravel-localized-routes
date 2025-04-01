@@ -242,7 +242,7 @@ final class LocalizedUrlGenerator
     protected function replaceParameterPlaceholders(string $uri, array $parameters): string
     {
         foreach ($parameters as $placeholder => $value) {
-            $uri = str_replace($placeholder, $value, $uri);
+            $uri = str_replace((string) $placeholder, (string) $value, $uri);
         }
 
         // Remove any optional placeholders that were not provided.
@@ -274,7 +274,7 @@ final class LocalizedUrlGenerator
 
         foreach ($parameters as $key => $parameter) {
             if ($parameter instanceof UrlRoutable) {
-                $parameters[$key] = $this->getLocalizedRouteKey($key, $parameter, $locale);
+                $parameters[$key] = $this->getLocalizedRouteKey((string) $key, $parameter, $locale);
             }
         }
 

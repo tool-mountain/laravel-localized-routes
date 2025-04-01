@@ -115,7 +115,7 @@ final class UrlGenerator extends BaseUrlGenerator
 
         // Normalize the route name by removing any locale prefix.
         // We will prepend the applicable locale manually.
-        $baseName = $this->stripLocaleFromRouteName($name);
+        $baseName = $this->stripLocaleFromRouteName((string) $name);
 
         if ($baseName === '') {
             return '';
